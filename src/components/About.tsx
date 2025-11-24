@@ -8,6 +8,8 @@ export function About() {
     'portfolio websites',
     'AI or API integrations',
     'improvements to your existing projects',
+    'clear summarization & presentations',
+    'bug fixes and debugging',
   ];
 
   return (
