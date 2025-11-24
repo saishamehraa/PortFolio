@@ -6,6 +6,7 @@ import {
   Puzzle,
   Plug,
   FileText,
+  Brain,
 } from 'lucide-react';
 
 export function Services() {
@@ -39,6 +40,11 @@ export function Services() {
       icon: FileText,
       title: 'Documentation & Presentations',
       description: 'Clear technical documentation and compelling presentations',
+    },
+    {
+      icon: Brain,
+      title: 'Bug Fixes & Debugging',
+      description: 'Identify and resolve issues to improve performance',
     },
   ];
 

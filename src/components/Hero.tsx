@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
 import { ArrowRight, Sparkles } from 'lucide-react';
-import heroImage from 'figma:asset/544127d82d55a4f348f06cdb616614f799abf13f.png';
+// @ts-ignore: Importing image asset without a corresponding type declaration
+import heroImage from '../assets/544127d82d55a4f348f06cdb616614f799abf13f.png';
 
 export function Hero() {
   return (
@@ -48,7 +49,7 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             Building clean web apps, intuitive UI/UX, and Python tools with speed
-            and precision.
+            and precision. Also debugging existing apps and adding new features into it.
           </motion.p>
 
           {/* Services List */}
@@ -64,6 +65,8 @@ export function Hero() {
               'Portfolio Websites',
               'API Integration',
               'Feature Upgrades',
+              'Bug Fixes',
+              'PPts & Summaries',
             ].map((service, index) => (
               <motion.span
                 key={service}
@@ -130,8 +133,7 @@ export function Hero() {
           </motion.div>
         </motion.div>
       </div>
-
-      {/* Hover Hint - Visible initially, fades on hover */}
+      {/* Hover Hint - Visible initially, fades on hover */}  {/*
       <motion.div
         className="hidden md:block absolute bottom-12 left-1/2 -translate-x-1/2 z-20 opacity-100 group-hover:opacity-0 transition-opacity duration-700"
         initial={{ opacity: 0, y: 20 }}
@@ -160,7 +162,7 @@ export function Hero() {
             <div className="w-2 h-2 bg-[#5CF0FF] rounded-full" />
           </motion.div>
         </div>
-      </motion.div>
+      </motion.div>          */}
     </section>
   );
 }

@@ -6,22 +6,22 @@ export function Contact() {
     {
       icon: Send,
       platform: 'Telegram',
-      handle: '@bluemeethues',
-      link: 'https://t.me/bluemeethues',
+      handle: '@blue_meet_hues',
+      link: 'https://t.me/blue_meet_hues',
       color: '#0088cc',
     },
     {
       icon: MessageCircle,
       platform: 'Discord',
-      handle: 'altruistic27',
-      link: '#',
+      handle: 'altruistic28',
+      link: 'https://discord.com/users/932714385196060683',
       color: '#5865F2',
     },
     {
       icon: Hash,
       platform: 'Reddit',
-      handle: '(alias)',
-      link: '#',
+      handle: 'Techieiinterns',
+      link: 'https://www.reddit.com/user/Techieiinterns',
       color: '#FF4500',
     },
     {

@@ -11,6 +11,10 @@ export function TechStack() {
     { name: 'Python', color: '#3776AB' },
     { name: 'REST APIs', color: '#4DA6FF' },
     { name: 'UI/UX Design', color: '#5CF0FF' },
+    { name: 'LLMs', color: '#38B2AC' },
+    { name: 'Prompting', color: '#F05032' },
+    { name: 'Gen AI', color: '#FD4499' },
+    { name: 'Bug Finder & Fixer', color: '#12B8FF' },
   ];
 
   return (

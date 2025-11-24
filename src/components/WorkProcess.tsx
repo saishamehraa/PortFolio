@@ -5,6 +5,7 @@ import {
   Code,
   MessageCircle,
   Rocket,
+  Book,
 } from 'lucide-react';
 
 export function WorkProcess() {
@@ -26,13 +27,18 @@ export function WorkProcess() {
     },
     {
       icon: MessageCircle,
-      title: 'Feedback',
+      title: 'Feedback / Adding New Features',
       description: 'Iterate based on your input',
     },
     {
       icon: Rocket,
       title: 'Deployment',
       description: 'Launch your project to production',
+    },
+    {
+      icon: Book,
+      title: 'Debugging / Support & Maintenance',
+      description: 'Ongoing support to ensure smooth operation',
     },
   ];
 

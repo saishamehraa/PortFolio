@@ -4,21 +4,21 @@ import { ExternalLink, Github } from 'lucide-react';
 export function Projects() {
   const projects = [
     {
-      title: 'AI-Powered Multi-LLM Web Platform',
+      title: 'NeuroAccess: AI-Powered Multi-LLM Web Platform',
       description:
         'A sophisticated web platform integrating multiple Large Language Models for diverse AI-powered functionalities.',
-      tags: ['React', 'API Integration', 'AI/ML'],
+      tags: ['React', 'API Integration', 'AI/LLMs'],
       gradient: 'from-[#4DA6FF] to-[#5CF0FF]',
     },
     {
-      title: 'Python-Based Phishing Detection Tool',
+      title: 'PhishGuard: Website Phishing Detection Tool',
       description:
         'Advanced security tool using machine learning to detect and prevent phishing attempts with high accuracy.',
-      tags: ['Python', 'Machine Learning', 'Security'],
+      tags: ['Python', 'API Integration', 'Machine Learning', 'Security'],
       gradient: 'from-[#5CF0FF] to-[#A68CFF]',
     },
     {
-      title: 'Educational Desktop App (Java)',
+      title: 'Edu.java: Educational Desktop App',
       description:
         'Interactive desktop application designed for educational purposes with an intuitive user interface.',
       tags: ['Java', 'Desktop App', 'UI/UX'],
