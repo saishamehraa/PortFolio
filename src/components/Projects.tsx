@@ -9,6 +9,8 @@ export function Projects() {
         'A sophisticated web platform integrating multiple Large Language Models for diverse AI-powered functionalities.',
       tags: ['React', 'API Integration', 'AI/LLMs'],
       gradient: 'from-[#4DA6FF] to-[#5CF0FF]',
+      projectLink: 'https://neuroaccess-gk0c.onrender.com',
+      githubLink: 'https://github.com/saishamehraa/NeuroAccess',  
     },
     {
       title: 'PhishGuard: Website Phishing Detection Tool',
@@ -16,6 +18,8 @@ export function Projects() {
         'Advanced security tool using machine learning to detect and prevent phishing attempts with high accuracy.',
       tags: ['Python', 'API Integration', 'Machine Learning', 'Security'],
       gradient: 'from-[#5CF0FF] to-[#A68CFF]',
+      projectLink: 'https://github.com/saishamehraa/PhishGuard/releases/tag/v1.0',
+      githubLink: 'https://github.com/saishamehraa/PhishGuard',  
     },
     {
       title: 'Edu.java: Educational Desktop App',
@@ -23,13 +27,17 @@ export function Projects() {
         'Interactive desktop application designed for educational purposes with an intuitive user interface.',
       tags: ['Java', 'Desktop App', 'UI/UX'],
       gradient: 'from-[#A68CFF] to-[#4DA6FF]',
+      projectLink: 'https://github.com/saishamehraa/Edu.java/releases/tag/v1.0.0',
+      githubLink: 'https://github.com/saishamehraa/Edu.java',  
     },
     {
-      title: 'Portfolio Website Template',
+      title: 'Portfolio: Website Template',
       description:
         'Modern, responsive portfolio template with neon aesthetic and smooth animations for showcasing work.',
       tags: ['React', 'Tailwind', 'Responsive'],
       gradient: 'from-[#4DA6FF] to-[#A68CFF]',
+      projectLink: 'https://techieinterns.vercel.app/',
+      githubLink: 'https://github.com/saishamehraa/PortFolio',  
     },
   ];
 
@@ -105,22 +113,30 @@ export function Projects() {
 
                 {/* Links */}
                 <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                  <motion.button
-                    className="flex items-center justify-center gap-2 px-4 py-2 bg-gradient-to-r from-[#4DA6FF] to-[#5CF0FF] rounded-lg text-sm hover:shadow-[0_0_20px_rgba(77,166,255,0.6)] transition-all"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <ExternalLink className="w-4 h-4" />
-                    View Project
-                  </motion.button>
-                  <motion.button
-                    className="flex items-center justify-center gap-2 px-4 py-2 border border-[#4DA6FF] rounded-lg text-sm hover:bg-[#4DA6FF]/10 hover:border-[#5CF0FF] transition-all"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <Github className="w-4 h-4" />
-                    Code
-                  </motion.button>
+                 <motion.a
+  href={project.projectLink}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="flex items-center justify-center gap-2 px-4 py-2 bg-gradient-to-r from-[#4DA6FF] to-[#5CF0FF] rounded-lg text-sm hover:shadow-[0_0_20px_rgba(77,166,255,0.6)] transition-all"
+  whileHover={{ scale: 1.05 }}
+  whileTap={{ scale: 0.95 }}
+>
+  <ExternalLink className="w-4 h-4" />
+  View Project
+</motion.a>
+
+<motion.a
+  href={project.githubLink}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="flex items-center justify-center gap-2 px-4 py-2 border border-[#4DA6FF] rounded-lg text-sm hover:bg-[#4DA6FF]/10 hover:border-[#5CF0FF] transition-all"
+  whileHover={{ scale: 1.05 }}
+  whileTap={{ scale: 0.95 }}
+>
+  <Github className="w-4 h-4" />
+  Code
+</motion.a>
+
                 </div>
               </div>
 
