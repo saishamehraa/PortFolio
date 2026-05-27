@@ -45,4 +45,4 @@ cd PortFolio
 
 ## License
 
-  ![LICENSE](./license.md) 
+  ![LICENSE](./LICENSE) 
