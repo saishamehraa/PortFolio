@@ -39,11 +39,11 @@ export function Vision() {
           </div>
 
           {/* Connection Lines */}
-          <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-40">
-            <path d="M 20% 20% L 50% 50%" stroke="#00FF88" strokeWidth="1" fill="none" strokeDasharray="4 8" />
-            <path d="M 30% 80% L 50% 50%" stroke="#00D4FF" strokeWidth="1" fill="none" strokeDasharray="4 8" />
-            <path d="M 75% 25% L 50% 50%" stroke="#00D4FF" strokeWidth="1" fill="none" strokeDasharray="4 8" />
-            <path d="M 80% 75% L 50% 50%" stroke="#A78BFA" strokeWidth="1" fill="none" strokeDasharray="4 8" />
+          <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-40" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path d="M 20 20 L 50 50" stroke="#00FF88" strokeWidth="0.5" fill="none" strokeDasharray="2 4" />
+            <path d="M 30 80 L 50 50" stroke="#00D4FF" strokeWidth="0.5" fill="none" strokeDasharray="2 4" />
+            <path d="M 75 25 L 50 50" stroke="#00D4FF" strokeWidth="0.5" fill="none" strokeDasharray="2 4" />
+            <path d="M 80 75 L 50 50" stroke="#A78BFA" strokeWidth="0.5" fill="none" strokeDasharray="2 4" />
           </svg>
         </div>
       </div>
