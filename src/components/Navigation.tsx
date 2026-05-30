@@ -8,9 +8,9 @@ export function Navigation() {
   const navItems = [
     { name: 'Home', href: '#home' },
     { name: 'About', href: '#about' },
-    { name: 'Services', href: '#services' },
+    { name: 'Focus', href: '#focus' },
+    { name: 'Ecosystem', href: '#ecosystem' },
     { name: 'Projects', href: '#projects' },
-    { name: 'Process', href: '#process' },
     { name: 'Stack', href: '#stack' },
     { name: 'Contact', href: '#contact' },
   ];
@@ -33,12 +33,12 @@ export function Navigation() {
           <motion.a
             href="#home"
             onClick={(e) => handleNavClick(e, '#home')}
-            className="font-orbitron text-lg sm:text-xl md:text-2xl bg-gradient-to-r from-[#4DA6FF] to-[#5CF0FF] bg-clip-text text-transparent"
+            className="font-orbitron text-lg sm:text-xl md:text-2xl bg-gradient-to-r from-[#F0F4FF] via-[#5CF0FF] to-[#A68CFF] bg-clip-text text-transparent tracking-widest font-semibold"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
           >
-            TECHIE INTERNS
+            SAISHA MEHRA
           </motion.a>
 
           {/* Desktop Navigation */}

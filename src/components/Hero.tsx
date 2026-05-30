@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight, Github, FileText } from 'lucide-react';
 // @ts-ignore: Importing image asset without a corresponding type declaration
 import heroImage from '../assets/544127d82d55a4f348f06cdb616614f799abf13f.png';
 
@@ -7,11 +7,11 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="group relative min-h-screen flex items-center justify-center overflow-hidden touch-none"
+      className="group relative min-h-screen flex items-center justify-center overflow-hidden touch-none bg-[#05060D]"
     >
-      {/* Background Image */}
+      {/* Background Image & Effects */}
       <div
-        className="absolute inset-0 z-0"
+        className="absolute inset-0 z-0 opacity-20"
         style={{
           backgroundImage: `url(${heroImage})`,
           backgroundSize: 'cover',
@@ -19,96 +19,97 @@ export function Hero() {
           backgroundRepeat: 'no-repeat',
         }}
       >
-        {/* Overlay that appears on hover */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#05060D]/50 via-[#05060D]/70 to-[#05060D] opacity-0 md:group-hover:opacity-100 md:transition-opacity md:duration-700 max-md:opacity-100" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#05060D]/80 via-[#05060D]/90 to-[#05060D]" />
       </div>
 
-      {/* Content - Hidden initially on desktop, always visible on mobile */}
-      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center pt-16 sm:pt-20 opacity-100 md:opacity-0 md:group-hover:opacity-100 md:transition-opacity md:duration-700">
+      {/* Node Connection Background Effect */}
+      <div className="absolute inset-0 z-0 pointer-events-none opacity-30">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#4DA6FF] rounded-full mix-blend-screen filter blur-[128px]" />
+        <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-[#A68CFF] rounded-full mix-blend-screen filter blur-[128px]" />
+      </div>
+
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center pt-16 sm:pt-20">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="space-y-6"
+          className="space-y-8"
         >
-          {/* Main Title */}
+          {/* Main Title / Name */}
           <motion.h1
-            className="font-orbitron text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl bg-gradient-to-r from-[#4DA6FF] via-[#5CF0FF] to-[#A68CFF] bg-clip-text text-transparent drop-shadow-[0_0_20px_rgba(77,166,255,0.5)] px-4"
-            initial={{ opacity: 0, scale: 0.9 }}
+            className="font-orbitron text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl bg-gradient-to-r from-[#F0F4FF] via-[#5CF0FF] to-[#A68CFF] bg-clip-text text-transparent drop-shadow-[0_0_20px_rgba(92,240,255,0.3)] px-4 tracking-tight"
+            initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Techie Interns
+            Saisha Mehra
           </motion.h1>
 
           {/* Subtitle */}
-          <motion.p
-            className="text-base sm:text-lg md:text-xl lg:text-2xl max-w-3xl mx-auto text-[#F0F4FF]/90 leading-relaxed px-4"
+          <motion.div
+            className="space-y-4 max-w-4xl mx-auto px-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Building clean web apps, intuitive UI/UX, and Python tools with speed
-            and precision. Also debugging existing apps and adding new features into it.
-          </motion.p>
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-[#F0F4FF] font-light leading-relaxed">
+              Building AI-Powered Systems for<br />
+              <span className="font-semibold text-[#5CF0FF]">Security, Trust, and Transparency</span>
+            </h2>
+          </motion.div>
 
-          {/* Services List */}
+          {/* Tags */}
           <motion.div
-            className="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4 max-w-4xl mx-auto px-4"
+            className="flex flex-wrap justify-center items-center gap-x-4 gap-y-2 sm:gap-x-6 text-[#A68CFF] text-sm sm:text-base md:text-lg font-medium px-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            {[
-              'Web Apps',
-              'Python Repos',
-              'Portfolio Websites',
-              'API Integration',
-              'Feature Upgrades',
-              'Bug Fixes',
-              'PPts & Summaries',
-            ].map((service, index) => (
-              <motion.span
-                key={service}
-                className="px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg bg-[#4DA6FF]/10 border border-[#4DA6FF]/30 text-[#5CF0FF] text-xs sm:text-sm md:text-base backdrop-blur-sm"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
-                whileHover={{
-                  scale: 1.05,
-                  boxShadow: '0 0 20px rgba(77,166,255,0.6)',
-                  borderColor: '#5CF0FF',
-                }}
-              >
-                {service}
-              </motion.span>
-            ))}
+            <span>AI Security</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-[#5CF0FF]" />
+            <span>Multi-Agent Systems</span>
+            <span className="hidden sm:block w-1.5 h-1.5 rounded-full bg-[#5CF0FF]" />
+            <br className="sm:hidden" />
+            <span>Trust Orchestration</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-[#5CF0FF]" />
+            <span>Cognitive Intelligence</span>
           </motion.div>
 
           {/* CTA Buttons */}
           <motion.div
-            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center pt-6 px-4"
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8 px-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
           >
             <motion.a
-              href="#projects"
-              className="w-full sm:w-auto group px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-[#4DA6FF] to-[#5CF0FF] rounded-lg font-orbitron flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(77,166,255,0.4)] hover:shadow-[0_0_30px_rgba(77,166,255,0.8)] transition-all duration-300"
+              href="#ecosystem"
+              className="w-full sm:w-auto px-8 py-4 bg-[#5CF0FF]/10 border border-[#5CF0FF]/50 rounded-lg font-orbitron flex items-center justify-center gap-3 text-[#5CF0FF] hover:bg-[#5CF0FF]/20 hover:shadow-[0_0_30px_rgba(92,240,255,0.3)] backdrop-blur-md transition-all duration-300"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              View Projects
-              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
+              View Ecosystem
+              <ArrowRight className="w-5 h-5" />
+            </motion.a>
+            <motion.a
+              href="https://github.com/saishamehraa"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto px-8 py-4 bg-transparent border-2 border-[#4DA6FF]/30 rounded-lg font-orbitron flex items-center justify-center gap-3 text-[#F0F4FF] hover:bg-[#4DA6FF]/10 hover:border-[#4DA6FF] transition-all duration-300"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Github className="w-5 h-5" />
+              GitHub
             </motion.a>
             <motion.a
               href="#contact"
-              className="w-full sm:w-auto group px-6 sm:px-8 py-3 sm:py-4 bg-transparent border-2 border-[#4DA6FF] rounded-lg font-orbitron flex items-center justify-center gap-2 hover:bg-[#4DA6FF]/10 hover:shadow-[0_0_20px_rgba(77,166,255,0.4)] transition-all duration-300"
+              className="w-full sm:w-auto px-8 py-4 bg-transparent border-2 border-[#A68CFF]/30 rounded-lg font-orbitron flex items-center justify-center gap-3 text-[#F0F4FF] hover:bg-[#A68CFF]/10 hover:border-[#A68CFF] transition-all duration-300"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Get in Touch
-              <Sparkles className="w-4 h-4 sm:w-5 sm:h-5" />
+              <FileText className="w-5 h-5" />
+              Resume
             </motion.a>
           </motion.div>
         </motion.div>
@@ -121,7 +122,7 @@ export function Hero() {
           transition={{ duration: 1, delay: 1.2 }}
         >
           <motion.div
-            className="w-6 h-10 border-2 border-[#5CF0FF] rounded-full flex justify-center pt-2"
+            className="w-6 h-10 border-2 border-[#5CF0FF]/50 rounded-full flex justify-center pt-2"
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
           >
@@ -133,36 +134,6 @@ export function Hero() {
           </motion.div>
         </motion.div>
       </div>
-      {/* Hover Hint - Visible initially, fades on hover */}  {/*
-      <motion.div
-        className="hidden md:block absolute bottom-12 left-1/2 -translate-x-1/2 z-20 opacity-100 group-hover:opacity-0 transition-opacity duration-700"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 0.5 }}
-      >
-        <div className="flex flex-col items-center gap-2">
-          <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            className="text-[#5CF0FF] text-sm sm:text-base font-orbitron"
-          >
-            Hover to explore
-          </motion.div>
-          <motion.div
-            className="w-8 h-8 border-2 border-[#5CF0FF] rounded-full flex items-center justify-center"
-            animate={{ 
-              boxShadow: [
-                '0 0 10px rgba(92,240,255,0.3)',
-                '0 0 20px rgba(92,240,255,0.6)',
-                '0 0 10px rgba(92,240,255,0.3)',
-              ]
-            }}
-            transition={{ duration: 2, repeat: Infinity }}
-          >
-            <div className="w-2 h-2 bg-[#5CF0FF] rounded-full" />
-          </motion.div>
-        </div>
-      </motion.div>          */}
     </section>
   );
 }
