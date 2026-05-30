@@ -26,21 +26,19 @@ export function BranchSplit() {
       <div className="relative w-[80vw] max-w-[1200px] flex justify-between h-[20vh]">
         <motion.div 
           className="absolute left-1/2 top-0 h-1 bg-[#00D4FF]"
-          style={{ transformOrigin: 'left' }}
+          style={{ transformOrigin: 'left', width: '50%', left: '0%' }}
           initial={{ scaleX: 0 }}
           whileInView={{ scaleX: 1 }}
           transition={{ duration: 1.5, delay: 2, ease: "easeOut" }}
           viewport={{ once: true }}
-          style={{ width: '50%', left: '0%' }}
         />
         <motion.div 
           className="absolute right-1/2 top-0 h-1 bg-gradient-to-r from-[#00D4FF] to-[#A78BFA]"
-          style={{ transformOrigin: 'left' }}
+          style={{ transformOrigin: 'left', width: '50%', right: '0%' }}
           initial={{ scaleX: 0 }}
           whileInView={{ scaleX: 1 }}
           transition={{ duration: 1.5, delay: 2, ease: "easeOut" }}
           viewport={{ once: true }}
-          style={{ width: '50%', right: '0%' }}
         />
 
         <motion.div 
