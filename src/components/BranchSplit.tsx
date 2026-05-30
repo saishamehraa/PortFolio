@@ -1,107 +1,40 @@
-import { motion } from 'motion/react';
+import React from 'react';
 
 export function BranchSplit() {
   return (
-    <section id="branch-split" className="relative min-h-[120vh] flex flex-col items-center bg-[#050505] overflow-hidden">
-      
-      {/* Massive Vertical Line dropping in */}
-      <motion.div 
-        className="w-1 h-[30vh] bg-gradient-to-b from-[#00D4FF]/20 to-[#00D4FF]"
-        initial={{ height: 0 }}
-        whileInView={{ height: '30vh' }}
-        transition={{ duration: 1.5, ease: "easeOut" }}
-        viewport={{ once: true, margin: "-100px" }}
-      />
-      
-      {/* The Central Node */}
-      <motion.div
-        className="w-8 h-8 rounded-full bg-[#00D4FF] shadow-[0_0_60px_#00D4FF] z-10"
-        initial={{ scale: 0 }}
-        whileInView={{ scale: 1 }}
-        transition={{ duration: 0.5, delay: 1.5 }}
-        viewport={{ once: true }}
-      />
+    <section id="branch" className="centered" data-active="none" style={{ paddingRight: '220px' }}>
+      <span className="eyebrow c sr">Architecture Evolution</span>
+      <h2 className="sr sr-delay-1">Two Pathways,<br />One Foundation</h2>
+      <p className="body-text centered sr sr-delay-2" style={{ maxWidth: '640px' }}>
+        The ecosystem bifurcates from the CyberMesh core. One path drives deep operational security. The other enables transparent cognitive research.
+      </p>
 
-      {/* The Enormous Split Geometry */}
-      <div className="relative w-[80vw] max-w-[1200px] flex justify-between h-[20vh]">
-        <motion.div 
-          className="absolute left-1/2 top-0 h-1 bg-[#00D4FF]"
-          style={{ transformOrigin: 'left', width: '50%', left: '0%' }}
-          initial={{ scaleX: 0 }}
-          whileInView={{ scaleX: 1 }}
-          transition={{ duration: 1.5, delay: 2, ease: "easeOut" }}
-          viewport={{ once: true }}
-        />
-        <motion.div 
-          className="absolute right-1/2 top-0 h-1 bg-gradient-to-r from-[#00D4FF] to-[#A78BFA]"
-          style={{ transformOrigin: 'left', width: '50%', right: '0%' }}
-          initial={{ scaleX: 0 }}
-          whileInView={{ scaleX: 1 }}
-          transition={{ duration: 1.5, delay: 2, ease: "easeOut" }}
-          viewport={{ once: true }}
-        />
+      <div className="branch-visual sr sr-delay-3">
+        <div className="branch-svg-wrap">
+          <svg viewBox="0 0 600 240" fill="none" style={{ width: '100%', height: 'auto' }}>
+            <line x1="300" y1="20" x2="300" y2="80" stroke="rgba(0,212,255,.3)" strokeWidth="1" strokeDasharray="4 4" />
+            <circle cx="300" cy="80" r="4" fill="var(--cyan)" />
+            <path d="M 300 80 Q 300 140 180 140 L 120 140" stroke="rgba(0,212,255,.25)" strokeWidth="1" fill="none" />
+            <path d="M 300 80 Q 300 140 420 140 L 480 140" stroke="rgba(167,139,250,.25)" strokeWidth="1" fill="none" />
+            
+            <circle r="3" fill="#00D4FF">
+              <animateMotion dur="2.5s" repeatCount="indefinite" path="M 300 20 L 300 80 Q 300 140 180 140 L 120 140" />
+            </circle>
+            <circle r="3" fill="#A78BFA">
+              <animateMotion dur="2.5s" repeatCount="indefinite" begin="0.4s" path="M 300 20 L 300 80 Q 300 140 420 140 L 480 140" />
+            </circle>
 
-        <motion.div 
-          className="absolute left-0 top-0 w-1 h-[20vh] bg-[#00D4FF]/40"
-          initial={{ height: 0 }}
-          whileInView={{ height: '20vh' }}
-          transition={{ duration: 1.5, delay: 3.5, ease: "easeOut" }}
-          viewport={{ once: true }}
-        />
-        <motion.div 
-          className="absolute right-0 top-0 w-1 h-[20vh] bg-[#A78BFA]/40"
-          initial={{ height: 0 }}
-          whileInView={{ height: '20vh' }}
-          transition={{ duration: 1.5, delay: 3.5, ease: "easeOut" }}
-          viewport={{ once: true }}
-        />
+            <rect x="50" y="125" width="70" height="30" rx="4" fill="rgba(0,212,255,.05)" stroke="rgba(0,212,255,.3)" strokeWidth="1" />
+            <text x="85" y="143" textAnchor="middle" fill="rgba(0,212,255,.8)" fontFamily="'JetBrains Mono',monospace" fontSize="9">Security Track</text>
+
+            <rect x="480" y="125" width="70" height="30" rx="4" fill="rgba(167,139,250,.05)" stroke="rgba(167,139,250,.3)" strokeWidth="1" />
+            <text x="515" y="143" textAnchor="middle" fill="rgba(167,139,250,.8)" fontFamily="'JetBrains Mono',monospace" fontSize="9">Human Layer</text>
+
+            <text x="300" y="10" textAnchor="middle" fill="rgba(0,212,255,.5)" fontFamily="'JetBrains Mono',monospace" fontSize="8" letterSpacing=".1em">CyberMesh Core</text>
+            <circle cx="300" cy="80" r="16" stroke="rgba(0,212,255,.15)" strokeWidth="1" fill="none" />
+          </svg>
+        </div>
       </div>
-
-      {/* The Labels */}
-      <div className="w-[80vw] max-w-[1200px] flex justify-between mt-16 text-center">
-        <motion.div 
-          className="w-1/2 pr-12"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, delay: 4 }}
-          viewport={{ once: true }}
-        >
-          <h3 className="font-orbitron text-4xl lg:text-5xl text-[#00D4FF] tracking-widest uppercase font-bold mb-6">
-            Operational Track
-          </h3>
-          <p className="font-inter text-2xl lg:text-3xl text-[#F2F2F2]/50 font-light">
-            Infrastructure Security
-          </p>
-        </motion.div>
-
-        <motion.div 
-          className="w-1/2 pl-12"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, delay: 4 }}
-          viewport={{ once: true }}
-        >
-          <h3 className="font-orbitron text-4xl lg:text-5xl text-[#A78BFA] tracking-widest uppercase font-bold mb-6">
-            Cognitive Track
-          </h3>
-          <p className="font-inter text-2xl lg:text-3xl text-[#F2F2F2]/50 font-light">
-            Human Perception
-          </p>
-        </motion.div>
-      </div>
-
-      {/* Title */}
-      <motion.div
-        className="absolute bottom-20 text-center w-full"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 2, delay: 5 }}
-        viewport={{ once: true }}
-      >
-        <h2 className="font-inter text-6xl md:text-[6rem] text-[#F2F2F2] font-light tracking-tight">
-          The Architecture Diverges.
-        </h2>
-      </motion.div>
     </section>
   );
 }

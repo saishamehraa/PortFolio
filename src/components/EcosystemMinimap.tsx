@@ -1,65 +1,125 @@
-import { useEffect, useState } from 'react';
-import { motion } from 'motion/react';
+import React, { useEffect } from 'react';
 
 export function EcosystemMinimap() {
-  const [activeSection, setActiveSection] = useState('vision');
-
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
-        });
-      },
-      { threshold: 0.3 }
-    );
+    // Porting the IntersectionObserver logic from reference.html
+    const sections = document.querySelectorAll('section');
+    const nodes = document.querySelectorAll('.eco-dot');
+    const names = document.querySelectorAll('.eco-name');
+    
+    // Scroll Reveal Logic
+    const srObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if(e.isIntersecting) {
+          e.target.classList.add('in');
+        }
+      });
+    }, { threshold: 0.15 });
+    
+    document.querySelectorAll('.sr').forEach(el => srObserver.observe(el));
 
-    const sections = document.querySelectorAll('section[id]');
-    sections.forEach((s) => observer.observe(s));
+    // Nav Logic
+    const navObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if(e.isIntersecting) {
+          const activeModules = e.target.getAttribute('data-active');
+          
+          nodes.forEach(n => {
+            n.classList.remove('active', 'dim');
+            if (activeModules === 'none') {
+              n.classList.add('dim');
+            } else if (activeModules === 'all') {
+              // all active, no dim
+            } else if (activeModules) {
+              const isActive = activeModules.split(',').includes(n.id.replace('nav-', ''));
+              if(isActive) n.classList.add('active');
+              else n.classList.add('dim');
+            }
+          });
 
-    return () => observer.disconnect();
+          names.forEach(n => {
+            n.classList.remove('active-c', 'active-v', 'dim');
+            if (activeModules === 'none') {
+              n.classList.add('dim');
+            } else if (activeModules === 'all') {
+              // no dim
+            } else if (activeModules) {
+              const rawId = n.previousElementSibling?.id.replace('nav-', '');
+              const isActive = activeModules.split(',').includes(rawId || '');
+              if (isActive) {
+                if (n.classList.contains('c-name')) n.classList.add('active-c');
+                if (n.classList.contains('v-name')) n.classList.add('active-v');
+              } else {
+                n.classList.add('dim');
+              }
+            }
+          });
+        }
+      });
+    }, { threshold: 0.5 });
+    
+    sections.forEach(s => navObserver.observe(s));
+
+    return () => {
+      srObserver.disconnect();
+      navObserver.disconnect();
+    };
   }, []);
 
-  const nodes = [
-    { id: 'how-trust-is-built', label: 'PromptShield' },
-    { id: 'how-trust-is-built-2', label: 'SIFTGuardian' },
-    { id: 'how-trust-is-built-3', label: 'Consent' },
-    { id: 'how-trust-is-built-4', label: 'CodeSage' },
-    { id: 'orchestration', label: 'SecRitual', isBranch: false },
-    { id: 'security-intelligence', label: 'CyberMesh', isBranch: false },
-    { id: 'cognitive-intelligence', label: 'OpenMind', isBranch: true },
-    { id: 'cognitive-intelligence-2', label: 'NeuroAccess', isBranch: true }
-  ];
-
   return (
-    <div className="fixed left-6 sm:left-12 top-1/2 -translate-y-1/2 z-50 hidden lg:flex flex-col items-start gap-4">
-      {nodes.map((node, i) => {
-        // Simple logic to light up based on section flow
-        let isActive = false;
+    <>
+      <nav>
+        <div className="logo">SYSTEM_CORE // v2.4.1</div>
+        <div className="nav-status">
+          <div className="status-dot"></div>
+          TELEMETRY LIVE
+        </div>
+      </nav>
+
+      <div id="eco-nav">
+        <div className="eco-header">ECOSYSTEM TRACKER</div>
         
-        if (activeSection === 'how-trust-is-built' && i <= 3) isActive = true;
-        if (activeSection === 'orchestration' && node.label === 'SecRitual') isActive = true;
-        if (activeSection === 'security-intelligence' && node.label === 'CyberMesh') isActive = true;
-        if (activeSection === 'cognitive-intelligence' && node.isBranch) isActive = true;
+        <div className="eco-track-label sec">SECURITY TRACK</div>
+        <div className="eco-node">
+          <div id="nav-promptshield" className="eco-dot cyan"></div>
+          <div className="eco-name c-name">PromptShield</div>
+        </div>
+        <div className="eco-node">
+          <div id="nav-sift" className="eco-dot cyan"></div>
+          <div className="eco-name c-name">SIFTGuardian</div>
+        </div>
+        <div className="eco-node">
+          <div id="nav-consent" className="eco-dot violet"></div>
+          <div className="eco-name v-name">Consent Guard.</div>
+        </div>
+        <div className="eco-node">
+          <div id="nav-codesage" className="eco-dot cyan"></div>
+          <div className="eco-name c-name">CodeSage</div>
+        </div>
         
-        return (
-          <div key={node.label} className={`flex items-center gap-3 transition-opacity duration-500 ${isActive ? 'opacity-100' : 'opacity-20'}`}>
-            <div className="relative flex items-center justify-center w-4 h-4">
-              {node.isBranch && <div className="absolute -left-4 w-4 h-px bg-white/20 transform rotate-45" />}
-              <motion.div 
-                className={`w-1.5 h-1.5 rounded-full ${isActive ? 'bg-[#5CF0FF] shadow-[0_0_10px_#5CF0FF]' : 'bg-white'}`}
-                animate={isActive ? { scale: [1, 1.5, 1] } : { scale: 1 }}
-                transition={{ duration: 2, repeat: Infinity }}
-              />
-            </div>
-            <span className={`text-[10px] font-orbitron tracking-widest uppercase ${isActive ? 'text-[#5CF0FF]' : 'text-white'}`}>
-              {node.label}
-            </span>
-          </div>
-        );
-      })}
-    </div>
+        <div className="eco-divider"></div>
+        
+        <div className="eco-node">
+          <div id="nav-secritual" className="eco-dot cyan"></div>
+          <div className="eco-name c-name">SecRitual</div>
+        </div>
+        <div className="eco-node">
+          <div id="nav-cybermesh" className="eco-dot cyan"></div>
+          <div className="eco-name c-name">CyberMesh</div>
+        </div>
+        
+        <div className="eco-divider"></div>
+        <div className="eco-track-label cog">COGNITIVE TRACK</div>
+        
+        <div className="eco-node">
+          <div id="nav-openmind" className="eco-dot violet"></div>
+          <div className="eco-name v-name">OpenMind</div>
+        </div>
+        <div className="eco-node">
+          <div id="nav-neuro" className="eco-dot violet"></div>
+          <div className="eco-name v-name">NeuroAccess</div>
+        </div>
+      </div>
+    </>
   );
 }

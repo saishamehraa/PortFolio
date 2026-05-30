@@ -1,78 +1,73 @@
-import { motion } from 'motion/react';
+import React from 'react';
 
 export function Vision() {
   return (
-    <section id="vision" className="relative min-h-screen flex flex-col justify-center bg-[#050505] overflow-hidden">
-      
-      {/* 70% Architecture Space (Background/Right dominant) */}
-      <div className="absolute inset-0 z-0 flex items-center justify-end pointer-events-none pr-0 lg:pr-20">
-        <div className="relative w-full h-full lg:w-[70vw] lg:h-[120vh]">
-          {/* Central CyberMesh Core */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 md:w-96 md:h-96 rounded-full border border-[#00D4FF]/20 flex items-center justify-center">
-            <div className="w-48 h-48 md:w-72 md:h-72 rounded-full border border-[#00D4FF]/10 flex items-center justify-center">
-              <div className="w-32 h-32 md:w-48 md:h-48 rounded-full bg-[#00D4FF]/5 border border-[#00D4FF]/30 flex flex-col items-center justify-center shadow-[0_0_100px_rgba(0,212,255,0.1)]">
-                <span className="font-orbitron text-[#00D4FF] text-xl md:text-3xl tracking-widest font-bold">CyberMesh</span>
-                <span className="font-mono text-[#00D4FF]/50 text-[10px] md:text-xs tracking-[0.3em] mt-2">ORCHESTRATION</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Surrounding Nodes */}
-          <div className="absolute top-[20%] left-[20%] flex flex-col items-center">
-            <div className="w-16 h-16 rounded-full border border-[#00FF88]/30 flex items-center justify-center bg-[#00FF88]/5 shadow-[0_0_50px_rgba(0,255,136,0.1)]" />
-            <span className="font-mono text-[#00FF88] text-[10px] tracking-widest mt-4">PromptShield</span>
-          </div>
-
-          <div className="absolute top-[80%] left-[30%] flex flex-col items-center">
-            <div className="w-20 h-20 rounded-full border border-[#00D4FF]/40 flex items-center justify-center bg-[#00D4FF]/5" />
-            <span className="font-mono text-[#00D4FF] text-[10px] tracking-widest mt-4">SecRitual</span>
-          </div>
-
-          <div className="absolute top-[25%] left-[75%] flex flex-col items-center">
-            <div className="w-16 h-16 rounded-full border border-[#00D4FF]/20 flex items-center justify-center bg-[#00D4FF]/5" />
-            <span className="font-mono text-[#00D4FF]/60 text-[10px] tracking-widest mt-4">CodeSage</span>
-          </div>
-
-          <div className="absolute top-[75%] left-[80%] flex flex-col items-center">
-            <div className="w-24 h-24 rounded-full border border-[#A78BFA]/30 flex items-center justify-center bg-[#A78BFA]/5" />
-            <span className="font-mono text-[#A78BFA] text-[10px] tracking-widest mt-4">OpenMind</span>
-          </div>
-
-          {/* Connection Lines */}
-          <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-40" viewBox="0 0 100 100" preserveAspectRatio="none">
-            <path d="M 20 20 L 50 50" stroke="#00FF88" strokeWidth="0.5" fill="none" strokeDasharray="2 4" />
-            <path d="M 30 80 L 50 50" stroke="#00D4FF" strokeWidth="0.5" fill="none" strokeDasharray="2 4" />
-            <path d="M 75 25 L 50 50" stroke="#00D4FF" strokeWidth="0.5" fill="none" strokeDasharray="2 4" />
-            <path d="M 80 75 L 50 50" stroke="#A78BFA" strokeWidth="0.5" fill="none" strokeDasharray="2 4" />
-          </svg>
-        </div>
+    <section id="vision" data-active="all" style={{ paddingRight: '220px' }}>
+      <span className="eyebrow c sr">AI Security Research Lab — Est. 2024</span>
+      <h1 className="sr sr-delay-1">
+        Building AI-Powered Systems for <span className="accent-c">Security, Trust</span> &amp; Cognitive Transparency
+      </h1>
+      <p className="body-text sr sr-delay-2">
+        An operational ecosystem of interconnected intelligence modules — each one a live node in a larger architecture securing the execution pathway from prompt to action.
+      </p>
+      <div className="btns sr sr-delay-3">
+        <a href="#trust" className="btn-p">Explore Ecosystem</a>
+        <a href="#" className="btn-o">View GitHub ↗</a>
       </div>
 
-      {/* 30% Text Space (Left aligned) */}
-      <div className="container mx-auto px-8 sm:px-12 lg:px-24 max-w-[1800px] relative z-10">
-        <div className="w-full lg:w-[35%]">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2, ease: "easeOut" }}
-            className="space-y-12"
-          >
-            <p className="font-mono text-xs md:text-sm text-[#00D4FF] tracking-[0.3em] uppercase">
-              AI Security Research Lab
-            </p>
-            
-            <h1 className="font-inter text-6xl sm:text-7xl md:text-[6rem] lg:text-[7rem] leading-[0.9] text-[#F2F2F2] font-light tracking-tight">
-              Trust<br />
-              Architecture
-            </h1>
-            
-            <p className="font-inter text-xl md:text-2xl text-[#8A939C] font-light leading-relaxed max-w-sm">
-              An operational ecosystem securing the execution pathway from prompt to action.
-            </p>
-          </motion.div>
-        </div>
-      </div>
-      
+      <svg style={{ position: 'absolute', right: '240px', top: '0', bottom: '0', width: '40%', height: '100%', opacity: 0.7 }} viewBox="0 0 400 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="200" cy="300" r="52" stroke="rgba(0,212,255,0.18)" strokeWidth="1" fill="rgba(0,212,255,0.03)" />
+        <circle cx="200" cy="300" r="80" stroke="rgba(0,212,255,0.08)" strokeWidth="1" strokeDasharray="4 7" />
+        <circle cx="200" cy="300" r="110" stroke="rgba(0,212,255,0.04)" strokeWidth="1" />
+        <text x="200" y="296" textAnchor="middle" fill="rgba(0,212,255,0.8)" fontFamily="'JetBrains Mono',monospace" fontSize="9" letterSpacing=".08em">CyberMesh</text>
+        <text x="200" y="310" textAnchor="middle" fill="rgba(0,212,255,0.35)" fontFamily="'JetBrains Mono',monospace" fontSize="7">ORCHESTRATION</text>
+        <circle cx="200" cy="300" r="10" fill="rgba(0,212,255,0.1)" stroke="rgba(0,212,255,0.4)" strokeWidth="1">
+          <animate attributeName="r" values="9;12;9" dur="3s" repeatCount="indefinite" />
+        </circle>
+        <line x1="200" y1="248" x2="200" y2="170" stroke="rgba(0,212,255,0.14)" strokeWidth=".5" />
+        <line x1="245" y1="277" x2="310" y2="220" stroke="rgba(0,255,122,0.12)" strokeWidth=".5" />
+        <line x1="245" y1="323" x2="310" y2="390" stroke="rgba(0,255,122,0.1)" strokeWidth=".5" />
+        <line x1="155" y1="323" x2="90" y2="390" stroke="rgba(167,139,250,0.12)" strokeWidth=".5" />
+        <line x1="155" y1="277" x2="90" y2="220" stroke="rgba(0,212,255,0.1)" strokeWidth=".5" />
+        <circle cx="200" cy="155" r="22" fill="rgba(0,232,122,0.04)" stroke="rgba(0,232,122,0.22)" strokeWidth=".5" />
+        <circle cx="200" cy="155" r="5" fill="rgba(0,232,122,0.8)">
+          <animate attributeName="opacity" values="1;.4;1" dur="2.2s" repeatCount="indefinite" />
+        </circle>
+        <text x="200" y="132" textAnchor="middle" fill="rgba(0,232,122,.7)" fontFamily="'JetBrains Mono',monospace" fontSize="8">PromptShield</text>
+        <circle cx="323" cy="210" r="18" fill="rgba(0,232,122,0.03)" stroke="rgba(0,232,122,0.18)" strokeWidth=".5" />
+        <circle cx="323" cy="210" r="4" fill="rgba(0,232,122,0.6)">
+          <animate attributeName="opacity" values=".6;.2;.6" dur="3s" repeatCount="indefinite" />
+        </circle>
+        <text x="323" y="192" textAnchor="middle" fill="rgba(0,232,122,.5)" fontFamily="'JetBrains Mono',monospace" fontSize="7.5">SIFTGuardian</text>
+        <circle cx="323" cy="400" r="18" fill="rgba(0,212,255,0.03)" stroke="rgba(0,212,255,0.18)" strokeWidth=".5" />
+        <circle cx="323" cy="400" r="4" fill="rgba(0,212,255,0.6)">
+          <animate attributeName="opacity" values=".6;.2;.6" dur="2.6s" repeatCount="indefinite" />
+        </circle>
+        <text x="323" y="382" textAnchor="middle" fill="rgba(0,212,255,.5)" fontFamily="'JetBrains Mono',monospace" fontSize="7.5">CodeSage</text>
+        <circle cx="77" cy="400" r="18" fill="rgba(167,139,250,0.03)" stroke="rgba(167,139,250,0.18)" strokeWidth=".5" />
+        <circle cx="77" cy="400" r="4" fill="rgba(167,139,250,0.6)">
+          <animate attributeName="opacity" values=".6;.2;.6" dur="3.5s" repeatCount="indefinite" />
+        </circle>
+        <text x="77" y="382" textAnchor="middle" fill="rgba(167,139,250,.5)" fontFamily="'JetBrains Mono',monospace" fontSize="7.5">Consent Guard.</text>
+        <circle cx="77" cy="210" r="18" fill="rgba(0,212,255,0.03)" stroke="rgba(0,212,255,0.15)" strokeWidth=".5" />
+        <circle cx="77" cy="210" r="4" fill="rgba(0,212,255,0.45)">
+          <animate attributeName="opacity" values=".4;.1;.4" dur="4s" repeatCount="indefinite" />
+        </circle>
+        <text x="77" y="192" textAnchor="middle" fill="rgba(0,212,255,.4)" fontFamily="'JetBrains Mono',monospace" fontSize="7.5">SecRitual</text>
+        
+        <circle r="3" fill="#00D4FF">
+          <animateMotion dur="2.8s" repeatCount="indefinite" path="M200,248 L200,177" />
+          <animate attributeName="opacity" values="0;.9;0" dur="2.8s" repeatCount="indefinite" />
+        </circle>
+        <circle r="2.5" fill="#00E87A">
+          <animateMotion dur="2.2s" repeatCount="indefinite" begin=".7s" path="M245,277 L310,222" />
+          <animate attributeName="opacity" values="0;.8;0" dur="2.2s" repeatCount="indefinite" begin=".7s" />
+        </circle>
+        <circle r="2.5" fill="#A78BFA">
+          <animateMotion dur="2.8s" repeatCount="indefinite" begin="1.4s" path="M155,323 L90,392" />
+          <animate attributeName="opacity" values="0;.7;0" dur="2.8s" repeatCount="indefinite" begin="1.4s" />
+        </circle>
+      </svg>
     </section>
   );
 }

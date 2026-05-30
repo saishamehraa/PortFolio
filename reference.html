@@ -1,0 +1,1477 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        :root {
+            --bg: #050505;
+            --bg2: #080c0f;
+            --text: #F2F2F2;
+            --muted: #6B7580;
+            --cyan: #00D4FF;
+            --emerald: #00E87A;
+            --violet: #A78BFA;
+            --red: #FF4444;
+            --border: rgba(255, 255, 255, 0.05);
+            --border2: rgba(255, 255, 255, 0.09);
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden
+        }
+
+        /* ── NAV ── */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 200;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 48px;
+            border-bottom: 1px solid var(--border);
+            background: rgba(5, 5, 5, 0.9);
+            backdrop-filter: blur(24px)
+        }
+
+        .logo {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--cyan);
+            letter-spacing: .15em
+        }
+
+        .nav-status {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            color: var(--muted);
+            letter-spacing: .12em;
+            display: flex;
+            align-items: center;
+            gap: 8px
+        }
+
+        .status-dot {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--emerald);
+            animation: blink 2s ease-in-out infinite
+        }
+
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 1
+            }
+
+            50% {
+                opacity: .3
+            }
+        }
+
+        /* ── PERSISTENT ECOSYSTEM NAVIGATOR ── */
+        #eco-nav {
+            position: fixed;
+            right: 24px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 150;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            background: rgba(5, 5, 5, 0.92);
+            border: 1px solid var(--border2);
+            border-radius: 8px;
+            padding: 16px 14px;
+            backdrop-filter: blur(20px);
+            width: 172px;
+        }
+
+        .eco-header {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9px;
+            color: var(--muted);
+            letter-spacing: .18em;
+            margin-bottom: 14px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border)
+        }
+
+        .eco-track-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 8px;
+            letter-spacing: .14em;
+            margin-bottom: 8px;
+            padding-left: 2px
+        }
+
+        .eco-track-label.sec {
+            color: rgba(0, 212, 255, 0.5)
+        }
+
+        .eco-track-label.cog {
+            color: rgba(167, 139, 250, 0.5)
+        }
+
+        .eco-node {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 8px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all .3s;
+            margin-bottom: 2px;
+            border: 1px solid transparent;
+        }
+
+        .eco-node:hover {
+            background: rgba(255, 255, 255, 0.03);
+            border-color: var(--border)
+        }
+
+        .eco-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            transition: all .4s;
+            border: 1px solid
+        }
+
+        .eco-dot.cyan {
+            background: rgba(0, 212, 255, 0.15);
+            border-color: rgba(0, 212, 255, 0.3)
+        }
+
+        .eco-dot.violet {
+            background: rgba(167, 139, 250, 0.15);
+            border-color: rgba(167, 139, 250, 0.3)
+        }
+
+        .eco-name {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9px;
+            letter-spacing: .06em;
+            transition: color .3s
+        }
+
+        .eco-dot.cyan.active {
+            background: var(--cyan);
+            border-color: var(--cyan);
+            box-shadow: 0 0 8px rgba(0, 212, 255, 0.5)
+        }
+
+        .eco-dot.violet.active {
+            background: var(--violet);
+            border-color: var(--violet);
+            box-shadow: 0 0 8px rgba(167, 139, 250, 0.5)
+        }
+
+        .eco-dot.dim {
+            opacity: .18
+        }
+
+        .eco-name.active-c {
+            color: var(--cyan)
+        }
+
+        .eco-name.active-v {
+            color: var(--violet)
+        }
+
+        .eco-name.dim {
+            color: rgba(107, 117, 128, 0.4)
+        }
+
+        .eco-divider {
+            height: 1px;
+            background: var(--border);
+            margin: 10px 0
+        }
+
+        /* ── SECTIONS ── */
+        section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding: 80px 80px 80px 80px
+        }
+
+        section.centered {
+            align-items: center;
+            text-align: center
+        }
+
+        /* ── TYPOGRAPHY ── */
+        .eyebrow {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            letter-spacing: .22em;
+            text-transform: uppercase;
+            margin-bottom: 28px;
+            display: block
+        }
+
+        .eyebrow.c {
+            color: var(--cyan)
+        }
+
+        .eyebrow.e {
+            color: var(--emerald)
+        }
+
+        .eyebrow.v {
+            color: var(--violet)
+        }
+
+        .eyebrow.r {
+            color: var(--red)
+        }
+
+        h1 {
+            font-size: clamp(44px, 5.8vw, 84px);
+            font-weight: 300;
+            line-height: 1.06;
+            letter-spacing: -.04em;
+            max-width: 920px
+        }
+
+        h2 {
+            font-size: clamp(36px, 4.5vw, 66px);
+            font-weight: 300;
+            line-height: 1.08;
+            letter-spacing: -.03em
+        }
+
+        .accent-c {
+            color: var(--cyan)
+        }
+
+        .accent-e {
+            color: var(--emerald)
+        }
+
+        .accent-v {
+            color: var(--violet)
+        }
+
+        .body-text {
+            font-size: 16px;
+            color: var(--muted);
+            font-weight: 300;
+            line-height: 1.75;
+            max-width: 520px;
+            margin-top: 32px
+        }
+
+        .body-text.centered {
+            margin-left: auto;
+            margin-right: auto
+        }
+
+        /* ── SCROLL REVEAL ── */
+        .sr {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity .9s, transform .9s
+        }
+
+        .sr.in {
+            opacity: 1;
+            transform: none
+        }
+
+        .sr-delay-1 {
+            transition-delay: .12s
+        }
+
+        .sr-delay-2 {
+            transition-delay: .24s
+        }
+
+        .sr-delay-3 {
+            transition-delay: .36s
+        }
+
+        /* ── PROCESS NARRATIVE ── */
+        .process-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 40px;
+            padding: 48px 0;
+            border-top: 1px solid var(--border);
+            position: relative
+        }
+
+        .process-row:last-child {
+            border-bottom: 1px solid var(--border)
+        }
+
+        .process-index {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            color: var(--muted);
+            letter-spacing: .14em;
+            min-width: 32px;
+            padding-top: 6px
+        }
+
+        .process-body {
+            flex: 1
+        }
+
+        .process-system {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: var(--cyan);
+            letter-spacing: .1em;
+            margin-bottom: 12px
+        }
+
+        .process-headline {
+            font-size: 26px;
+            font-weight: 300;
+            letter-spacing: -.02em;
+            margin-bottom: 10px;
+            line-height: 1.2
+        }
+
+        .process-desc {
+            font-size: 14px;
+            color: var(--muted);
+            font-weight: 300;
+            line-height: 1.7;
+            max-width: 560px
+        }
+
+        .process-node-dot {
+            position: absolute;
+            right: 0;
+            top: 52px;
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: var(--cyan);
+            animation: pulse 2.4s ease-in-out infinite
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1)
+            }
+
+            50% {
+                opacity: .35;
+                transform: scale(.55)
+            }
+        }
+
+        /* ── FLOW ── */
+        .flow-wrap {
+            display: flex;
+            align-items: center;
+            gap: 0;
+            margin-top: 64px;
+            width: 100%
+        }
+
+        .flow-box {
+            flex: 1;
+            padding: 36px 24px;
+            border: 1px solid var(--border2);
+            border-radius: 6px;
+            text-align: center;
+            transition: border-color .3s
+        }
+
+        .flow-box:hover {
+            border-color: rgba(0, 212, 255, 0.25)
+        }
+
+        .flow-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9px;
+            color: var(--muted);
+            letter-spacing: .15em;
+            margin-bottom: 10px
+        }
+
+        .flow-title {
+            font-size: 20px;
+            font-weight: 300;
+            letter-spacing: -.02em;
+            margin-bottom: 8px
+        }
+
+        .flow-nodes {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            color: var(--muted);
+            line-height: 2
+        }
+
+        .flow-connector {
+            width: 52px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative
+        }
+
+        .flow-line {
+            width: 100%;
+            height: 1px;
+            background: rgba(0, 212, 255, 0.25);
+            position: relative;
+            overflow: visible
+        }
+
+        .flow-arrow-tip {
+            position: absolute;
+            right: -1px;
+            top: -4px;
+            width: 0;
+            height: 0;
+            border-left: 7px solid rgba(0, 212, 255, 0.4);
+            border-top: 4px solid transparent;
+            border-bottom: 4px solid transparent
+        }
+
+        .sig {
+            position: absolute;
+            top: -3px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--cyan);
+            animation: sigMove 2.5s ease-in-out infinite
+        }
+
+        .sig2 {
+            animation-delay: .85s
+        }
+
+        .sig3 {
+            animation-delay: 1.7s
+        }
+
+        @keyframes sigMove {
+            0% {
+                left: 0;
+                opacity: 0
+            }
+
+            10% {
+                opacity: 1
+            }
+
+            90% {
+                opacity: 1
+            }
+
+            100% {
+                left: calc(100% - 6px);
+                opacity: 0
+            }
+        }
+
+        /* ── SECURITY SPLIT ── */
+        .security-split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            width: 100%
+        }
+
+        .security-bullets {
+            margin-top: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px
+        }
+
+        .security-bullet {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            font-size: 14px;
+            color: var(--muted)
+        }
+
+        .security-bullet::before {
+            content: '';
+            flex-shrink: 0;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: var(--cyan);
+            margin-top: 8px
+        }
+
+        /* ── BRANCH ── */
+        #branch {
+            padding: 80px
+        }
+
+        .branch-visual {
+            width: 100%;
+            margin-top: 60px;
+            position: relative
+        }
+
+        .branch-svg-wrap {
+            width: 100%;
+            max-width: 780px;
+            margin: 0 auto
+        }
+
+        /* ── COGNITIVE ── */
+        #cognitive {
+            background: linear-gradient(180deg, #050505 0%, #06040e 100%)
+        }
+
+        .cog-nodes {
+            display: flex;
+            justify-content: center;
+            gap: 64px;
+            margin-top: 56px;
+            flex-wrap: wrap
+        }
+
+        .cog-node {
+            text-align: center
+        }
+
+        .cog-orb {
+            width: 88px;
+            height: 88px;
+            border-radius: 50%;
+            border: 1px solid rgba(167, 139, 250, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            position: relative
+        }
+
+        .cog-orb-core {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: rgba(167, 139, 250, .6);
+            animation: pulse 3s ease-in-out infinite
+        }
+
+        .cog-ring {
+            position: absolute;
+            inset: -10px;
+            border-radius: 50%;
+            border: 1px solid rgba(167, 139, 250, .1);
+            animation: spinRing 12s linear infinite
+        }
+
+        .cog-ring2 {
+            position: absolute;
+            inset: -20px;
+            border-radius: 50%;
+            border: 1px solid rgba(167, 139, 250, .06);
+            animation: spinRing 20s linear infinite reverse
+        }
+
+        @keyframes spinRing {
+            from {
+                transform: rotate(0deg)
+            }
+
+            to {
+                transform: rotate(360deg)
+            }
+        }
+
+        .cog-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: var(--violet);
+            letter-spacing: .08em
+        }
+
+        .cog-desc {
+            font-size: 12px;
+            color: var(--muted);
+            margin-top: 8px;
+            max-width: 160px
+        }
+
+        /* ── ORIGIN ── */
+        .origin-path {
+            margin-top: 64px;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            max-width: 640px
+        }
+
+        .origin-step {
+            display: flex;
+            align-items: flex-start;
+            gap: 32px;
+            padding: 32px 0;
+            border-left: 1px solid var(--border);
+            padding-left: 32px;
+            position: relative
+        }
+
+        .origin-step::before {
+            content: '';
+            position: absolute;
+            left: -5px;
+            top: 38px;
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            border: 1px solid var(--cyan);
+            background: var(--bg)
+        }
+
+        .origin-step.active-step::before {
+            background: var(--cyan)
+        }
+
+        .origin-year {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            color: var(--muted);
+            letter-spacing: .12em;
+            min-width: 48px;
+            padding-top: 4px;
+            flex-shrink: 0
+        }
+
+        .origin-text {
+            flex: 1
+        }
+
+        .origin-title {
+            font-size: 18px;
+            font-weight: 400;
+            letter-spacing: -.01em;
+            margin-bottom: 6px
+        }
+
+        .origin-sub {
+            font-size: 13px;
+            color: var(--muted);
+            font-weight: 300;
+            line-height: 1.65
+        }
+
+        /* ── FUTURE ── */
+        #future {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            padding: 40px 80px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center
+        }
+
+        .footer-mono {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            color: var(--muted);
+            letter-spacing: .1em
+        }
+
+        /* ── CTA BTNS ── */
+        .btn-p {
+            display: inline-block;
+            padding: 13px 26px;
+            background: var(--cyan);
+            color: #050505;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: .07em;
+            border: none;
+            cursor: pointer;
+            border-radius: 3px;
+            text-decoration: none;
+            transition: opacity .2s
+        }
+
+        .btn-p:hover {
+            opacity: .82
+        }
+
+        .btn-o {
+            display: inline-block;
+            padding: 13px 26px;
+            background: transparent;
+            color: var(--muted);
+            font-size: 12px;
+            letter-spacing: .07em;
+            border: 1px solid var(--border2);
+            cursor: pointer;
+            border-radius: 3px;
+            text-decoration: none;
+            transition: all .2s
+        }
+
+        .btn-o:hover {
+            color: var(--text);
+            border-color: rgba(255, 255, 255, 0.2)
+        }
+
+        .btns {
+            display: flex;
+            gap: 14px;
+            margin-top: 48px
+        }
+    </style>
+
+    <h2 class="sr-only" style="position:absolute;left:-9999px">AI Security Research Lab — Living Ecosystem</h2>
+
+    <!-- NAV -->
+    <nav>
+        <span class="logo">AXON.LAB</span>
+        <div class="nav-status">
+            <div class="status-dot"></div>
+            <span id="sys-clock">ECOSYSTEM OPERATIONAL</span>
+        </div>
+    </nav>
+
+    <!-- PERSISTENT ECOSYSTEM NAVIGATOR -->
+    <div id="eco-nav">
+        <div class="eco-header">ECOSYSTEM</div>
+        <div class="eco-track-label sec">OPERATIONAL SECURITY</div>
+        <div class="eco-node" data-node="promptshield" onclick="scrollToSection('process')">
+            <div class="eco-dot cyan" id="dot-promptshield"></div>
+            <span class="eco-name" id="name-promptshield">PromptShield</span>
+        </div>
+        <div class="eco-node" data-node="sift" onclick="scrollToSection('process')">
+            <div class="eco-dot cyan" id="dot-sift"></div>
+            <span class="eco-name" id="name-sift">SIFTGuardian</span>
+        </div>
+        <div class="eco-node" data-node="consent" onclick="scrollToSection('process')">
+            <div class="eco-dot cyan" id="dot-consent"></div>
+            <span class="eco-name" id="name-consent">Consent Guardian</span>
+        </div>
+        <div class="eco-node" data-node="codesage" onclick="scrollToSection('process')">
+            <div class="eco-dot cyan" id="dot-codesage"></div>
+            <span class="eco-name" id="name-codesage">CodeSage</span>
+        </div>
+        <div class="eco-node" data-node="secritual" onclick="scrollToSection('flow')">
+            <div class="eco-dot cyan" id="dot-secritual"></div>
+            <span class="eco-name" id="name-secritual">SecRitual</span>
+        </div>
+        <div class="eco-node" data-node="cybermesh" onclick="scrollToSection('security')">
+            <div class="eco-dot cyan" id="dot-cybermesh"></div>
+            <span class="eco-name" id="name-cybermesh">CyberMesh</span>
+        </div>
+        <div class="eco-divider"></div>
+        <div class="eco-track-label cog">COGNITIVE INTELLIGENCE</div>
+        <div class="eco-node" data-node="openmind" onclick="scrollToSection('cognitive')">
+            <div class="eco-dot violet" id="dot-openmind"></div>
+            <span class="eco-name" id="name-openmind">OpenMind Nexus</span>
+        </div>
+        <div class="eco-node" data-node="neuroaccess" onclick="scrollToSection('cognitive')">
+            <div class="eco-dot violet" id="dot-neuroaccess"></div>
+            <span class="eco-name" id="name-neuroaccess">NeuroAccess</span>
+        </div>
+    </div>
+
+    <!-- ══════════ 1. VISION ══════════ -->
+    <section id="vision" data-active="all" style="padding-right:220px">
+        <span class="eyebrow c sr">AI Security Research Lab — Est. 2024</span>
+        <h1 class="sr sr-delay-1">Building AI-Powered Systems for <span class="accent-c">Security, Trust</span> &amp;
+            Cognitive Transparency</h1>
+        <p class="body-text sr sr-delay-2">An operational ecosystem of interconnected intelligence modules — each one a
+            live node in a larger architecture securing the execution pathway from prompt to action.</p>
+        <div class="btns sr sr-delay-3">
+            <a href="#trust" class="btn-p">Explore Ecosystem</a>
+            <a href="#" class="btn-o">View GitHub ↗</a>
+        </div>
+
+        <svg style="position:absolute;right:240px;top:0;bottom:0;width:40%;height:100%;opacity:.7" viewBox="0 0 400 600"
+            fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="200" cy="300" r="52" stroke="rgba(0,212,255,0.18)" stroke-width="1"
+                fill="rgba(0,212,255,0.03)" />
+            <circle cx="200" cy="300" r="80" stroke="rgba(0,212,255,0.08)" stroke-width="1" stroke-dasharray="4 7" />
+            <circle cx="200" cy="300" r="110" stroke="rgba(0,212,255,0.04)" stroke-width="1" />
+            <text x="200" y="296" text-anchor="middle" fill="rgba(0,212,255,0.8)"
+                font-family="'JetBrains Mono',monospace" font-size="9" letter-spacing=".08em">CyberMesh</text>
+            <text x="200" y="310" text-anchor="middle" fill="rgba(0,212,255,0.35)"
+                font-family="'JetBrains Mono',monospace" font-size="7">ORCHESTRATION</text>
+            <circle cx="200" cy="300" r="10" fill="rgba(0,212,255,0.1)" stroke="rgba(0,212,255,0.4)" stroke-width="1">
+                <animate attributeName="r" values="9;12;9" dur="3s" repeatCount="indefinite" />
+            </circle>
+            <line x1="200" y1="248" x2="200" y2="170" stroke="rgba(0,212,255,0.14)" stroke-width=".5" />
+            <line x1="245" y1="277" x2="310" y2="220" stroke="rgba(0,255,122,0.12)" stroke-width=".5" />
+            <line x1="245" y1="323" x2="310" y2="390" stroke="rgba(0,255,122,0.1)" stroke-width=".5" />
+            <line x1="155" y1="323" x2="90" y2="390" stroke="rgba(167,139,250,0.12)" stroke-width=".5" />
+            <line x1="155" y1="277" x2="90" y2="220" stroke="rgba(0,212,255,0.1)" stroke-width=".5" />
+            <circle cx="200" cy="155" r="22" fill="rgba(0,232,122,0.04)" stroke="rgba(0,232,122,0.22)"
+                stroke-width=".5" />
+            <circle cx="200" cy="155" r="5" fill="rgba(0,232,122,0.8)">
+                <animate attributeName="opacity" values="1;.4;1" dur="2.2s" repeatCount="indefinite" />
+            </circle>
+            <text x="200" y="132" text-anchor="middle" fill="rgba(0,232,122,.7)"
+                font-family="'JetBrains Mono',monospace" font-size="8">PromptShield</text>
+            <circle cx="323" cy="210" r="18" fill="rgba(0,232,122,0.03)" stroke="rgba(0,232,122,0.18)"
+                stroke-width=".5" />
+            <circle cx="323" cy="210" r="4" fill="rgba(0,232,122,0.6)">
+                <animate attributeName="opacity" values=".6;.2;.6" dur="3s" repeatCount="indefinite" />
+            </circle>
+            <text x="323" y="192" text-anchor="middle" fill="rgba(0,232,122,.5)"
+                font-family="'JetBrains Mono',monospace" font-size="7.5">SIFTGuardian</text>
+            <circle cx="323" cy="400" r="18" fill="rgba(0,212,255,0.03)" stroke="rgba(0,212,255,0.18)"
+                stroke-width=".5" />
+            <circle cx="323" cy="400" r="4" fill="rgba(0,212,255,0.6)">
+                <animate attributeName="opacity" values=".6;.2;.6" dur="2.6s" repeatCount="indefinite" />
+            </circle>
+            <text x="323" y="382" text-anchor="middle" fill="rgba(0,212,255,.5)"
+                font-family="'JetBrains Mono',monospace" font-size="7.5">CodeSage</text>
+            <circle cx="77" cy="400" r="18" fill="rgba(167,139,250,0.03)" stroke="rgba(167,139,250,0.18)"
+                stroke-width=".5" />
+            <circle cx="77" cy="400" r="4" fill="rgba(167,139,250,0.6)">
+                <animate attributeName="opacity" values=".6;.2;.6" dur="3.5s" repeatCount="indefinite" />
+            </circle>
+            <text x="77" y="382" text-anchor="middle" fill="rgba(167,139,250,.5)"
+                font-family="'JetBrains Mono',monospace" font-size="7.5">Consent Guard.</text>
+            <circle cx="77" cy="210" r="18" fill="rgba(0,212,255,0.03)" stroke="rgba(0,212,255,0.15)"
+                stroke-width=".5" />
+            <circle cx="77" cy="210" r="4" fill="rgba(0,212,255,0.45)">
+                <animate attributeName="opacity" values=".4;.1;.4" dur="4s" repeatCount="indefinite" />
+            </circle>
+            <text x="77" y="192" text-anchor="middle" fill="rgba(0,212,255,.4)" font-family="'JetBrains Mono',monospace"
+                font-size="7.5">SecRitual</text>
+            <circle r="3" fill="#00D4FF">
+                <animateMotion dur="2.8s" repeatCount="indefinite" path="M200,248 L200,177" />
+                <animate attributeName="opacity" values="0;.9;0" dur="2.8s" repeatCount="indefinite" />
+            </circle>
+            <circle r="2.5" fill="#00E87A">
+                <animateMotion dur="2.2s" repeatCount="indefinite" begin=".7s" path="M245,277 L310,222" />
+                <animate attributeName="opacity" values="0;.8;0" dur="2.2s" repeatCount="indefinite" begin=".7s" />
+            </circle>
+            <circle r="2.5" fill="#A78BFA">
+                <animateMotion dur="2.8s" repeatCount="indefinite" begin="1.4s" path="M155,323 L90,392" />
+                <animate attributeName="opacity" values="0;.7;0" dur="2.8s" repeatCount="indefinite" begin="1.4s" />
+            </circle>
+        </svg>
+    </section>
+
+    <!-- ══════════ 2. WHY TRUST MATTERS ══════════ -->
+    <section id="trust" class="centered" data-active="none" style="background:linear-gradient(180deg,#050505,#06090b)">
+        <span class="eyebrow e sr">The Core Premise</span>
+        <h2 class="sr sr-delay-1" style="max-width:720px">Trust Is The New<br><span class="accent-e">Security
+                Layer</span></h2>
+        <p class="body-text centered sr sr-delay-2">Intelligent systems need more than protection. True security
+            requires orchestrated trust — from prompt to execution to outcome.</p>
+    </section>
+
+    <!-- ══════════ 3. TRUST FAILURE ══════════ -->
+    <section id="failure" class="centered" data-active="none" style="background:#050505">
+        <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:1" viewBox="0 0 1200 700"
+            preserveAspectRatio="xMidYMid slice" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="600" cy="350" r="5" fill="rgba(255,68,68,.6)">
+                <animate attributeName="opacity" values=".6;.1;.6" dur="2.8s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="380" cy="220" r="3" fill="rgba(255,80,60,.4)">
+                <animate attributeName="opacity" values=".4;.05;.4" dur="3.5s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="820" cy="280" r="3" fill="rgba(255,68,68,.35)">
+                <animate attributeName="opacity" values=".35;.05;.35" dur="2.2s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="480" cy="500" r="3" fill="rgba(255,50,50,.4)">
+                <animate attributeName="opacity" values=".4;.08;.4" dur="4s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="750" cy="460" r="3" fill="rgba(255,80,60,.3)">
+                <animate attributeName="opacity" values=".3;.06;.3" dur="3s" repeatCount="indefinite" />
+            </circle>
+            <line x1="600" y1="350" x2="380" y2="220" stroke="rgba(255,68,68,.1)" stroke-width=".5"
+                stroke-dasharray="3 8" />
+            <line x1="600" y1="350" x2="820" y2="280" stroke="rgba(255,68,68,.08)" stroke-width=".5"
+                stroke-dasharray="3 8" />
+            <line x1="600" y1="350" x2="480" y2="500" stroke="rgba(255,68,68,.1)" stroke-width=".5"
+                stroke-dasharray="3 8" />
+            <line x1="600" y1="350" x2="750" y2="460" stroke="rgba(255,68,68,.07)" stroke-width=".5"
+                stroke-dasharray="3 8" />
+            <line x1="0" y1="180" x2="380" y2="180" stroke="rgba(255,68,68,.04)" stroke-width=".5" />
+            <line x1="380" y1="180" x2="400" y2="160" stroke="rgba(255,68,68,.04)" stroke-width=".5" />
+            <line x1="400" y1="160" x2="1200" y2="160" stroke="rgba(255,68,68,.04)" stroke-width=".5" />
+            <line x1="0" y1="380" x2="320" y2="380" stroke="rgba(255,68,68,.03)" stroke-width=".5" />
+            <line x1="320" y1="380" x2="350" y2="340" stroke="rgba(255,68,68,.03)" stroke-width=".5" />
+            <line x1="350" y1="340" x2="1200" y2="340" stroke="rgba(255,68,68,.03)" stroke-width=".5" />
+            <line x1="0" y1="560" x2="280" y2="560" stroke="rgba(255,68,68,.03)" stroke-width=".5" />
+            <line x1="280" y1="560" x2="300" y2="520" stroke="rgba(255,68,68,.03)" stroke-width=".5" />
+            <line x1="300" y1="520" x2="1200" y2="520" stroke="rgba(255,68,68,.03)" stroke-width=".5" />
+        </svg>
+        <div style="position:relative;z-index:2;text-align:center">
+            <span class="eyebrow r sr">The Central Problem</span>
+            <h2 class="sr sr-delay-1" style="max-width:680px;margin:0 auto">Every Intelligent System<br>Fails the Same
+                Way.</h2>
+            <p style="margin-top:24px;font-size:18px;color:rgba(138,147,156,.75);font-weight:300" class="sr sr-delay-2">
+                Not because it lacked intelligence.<br>Because it lacked <span
+                    style="color:rgba(255,80,80,.8)">trust</span>.</p>
+        </div>
+    </section>
+
+    <!-- ══════════ 4. HOW TRUST IS BUILT ══════════ -->
+    <section id="process" data-active="promptshield,sift,consent,codesage"
+        style="padding-right:220px;padding-top:120px;padding-bottom:120px">
+        <span class="eyebrow c sr">Architecture — Trust Layer</span>
+        <h2 class="sr sr-delay-1" style="max-width:560px">How Trust<br>Is Built</h2>
+        <div style="margin-top:60px;width:100%">
+            <div class="process-row sr">
+                <div class="process-index">01</div>
+                <div class="process-body">
+                    <div class="process-system">PromptShield</div>
+                    <div class="process-headline">Every decision begins with trust.</div>
+                    <div class="process-desc">Prompt interactions are validated before reasoning begins. Intent is
+                        verified before execution is permitted.</div>
+                </div>
+                <div class="process-node-dot"></div>
+            </div>
+            <div class="process-row sr sr-delay-1">
+                <div class="process-index">02</div>
+                <div class="process-body">
+                    <div class="process-system">SIFTGuardian</div>
+                    <div class="process-headline">Signals become intelligence.</div>
+                    <div class="process-desc">Threat context is correlated across sources. Raw data becomes structured,
+                        actionable threat intelligence.</div>
+                </div>
+                <div class="process-node-dot" style="background:var(--emerald)"></div>
+            </div>
+            <div class="process-row sr sr-delay-2">
+                <div class="process-index">03</div>
+                <div class="process-body">
+                    <div class="process-system" style="color:var(--violet)">Consent Guardian</div>
+                    <div class="process-headline">Boundaries become enforceable.</div>
+                    <div class="process-desc">Trust constraints are applied before execution. What a system can do is
+                        bounded by what it has been permitted to do.</div>
+                </div>
+                <div class="process-node-dot" style="background:var(--violet)"></div>
+            </div>
+            <div class="process-row sr sr-delay-3">
+                <div class="process-index">04</div>
+                <div class="process-body">
+                    <div class="process-system">CodeSage</div>
+                    <div class="process-headline">Logic becomes explainable.</div>
+                    <div class="process-desc">Code paths are analyzed and reasoned about transparently. Every action has
+                        a traceable justification.</div>
+                </div>
+                <div class="process-node-dot"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════ 5. ORCHESTRATION FLOW ══════════ -->
+    <section id="flow" class="centered" data-active="secritual,cybermesh"
+        style="background:linear-gradient(180deg,#050505,#060b0e);padding-right:220px">
+        <span class="eyebrow c sr">Orchestration</span>
+        <h2 class="sr sr-delay-1">How Systems<br>Work Together</h2>
+        <div class="flow-wrap sr sr-delay-2">
+            <div class="flow-box">
+                <div class="flow-label">LAYER 01</div>
+                <div class="flow-title">Modules</div>
+                <div class="flow-nodes">PromptShield<br>SIFTGuardian<br>Consent Guardian<br>CodeSage</div>
+            </div>
+            <div class="flow-connector">
+                <div class="flow-line">
+                    <div class="flow-arrow-tip"></div>
+                    <div class="sig"></div>
+                    <div class="sig sig2"></div>
+                    <div class="sig sig3"></div>
+                </div>
+            </div>
+            <div class="flow-box" style="border-color:rgba(0,212,255,0.2)">
+                <div class="flow-label">LAYER 02</div>
+                <div class="flow-title">Reasoning</div>
+                <div class="flow-nodes">SecRitual</div>
+            </div>
+            <div class="flow-connector">
+                <div class="flow-line">
+                    <div class="flow-arrow-tip"></div>
+                    <div class="sig" style="animation-delay:.3s"></div>
+                    <div class="sig sig2" style="animation-delay:1.15s"></div>
+                    <div class="sig sig3" style="animation-delay:2s"></div>
+                </div>
+            </div>
+            <div class="flow-box" style="border-color:rgba(0,212,255,0.35)">
+                <div class="flow-label">LAYER 03</div>
+                <div class="flow-title">Orchestration</div>
+                <div class="flow-nodes">CyberMesh</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════ 6. SECURITY INTELLIGENCE ══════════ -->
+    <section id="security" data-active="secritual,cybermesh" style="padding-right:220px">
+        <div class="security-split">
+            <div class="sr">
+                <span class="eyebrow c">Security Intelligence</span>
+                <h2>Defend the<br>Execution Pathway</h2>
+                <div class="security-bullets">
+                    <div class="security-bullet">Dynamic threat reasoning and adaptive response</div>
+                    <div class="security-bullet">Cross-module orchestration and signal routing</div>
+                    <div class="security-bullet">Continuous trust propagation across system state</div>
+                    <div class="security-bullet">Auditable execution pathways with traceable justification</div>
+                </div>
+            </div>
+            <svg viewBox="0 0 380 380" fill="none" class="sr sr-delay-1" style="width:100%">
+                <circle cx="190" cy="190" r="140" fill="rgba(0,212,255,0.02)" stroke="rgba(0,212,255,0.06)"
+                    stroke-width="1" />
+                <circle cx="190" cy="190" r="100" stroke="rgba(0,212,255,0.08)" stroke-width="1"
+                    stroke-dasharray="4 8" />
+                <circle cx="190" cy="190" r="60" stroke="rgba(0,212,255,0.12)" stroke-width="1" />
+                <circle cx="190" cy="190" r="28" fill="rgba(0,212,255,0.06)" stroke="rgba(0,212,255,0.35)"
+                    stroke-width="1">
+                    <animate attributeName="r" values="26;30;26" dur="3.5s" repeatCount="indefinite" />
+                </circle>
+                <text x="190" y="186" text-anchor="middle" fill="rgba(0,212,255,.75)"
+                    font-family="'JetBrains Mono',monospace" font-size="8" letter-spacing=".07em">CyberMesh</text>
+                <text x="190" y="198" text-anchor="middle" fill="rgba(0,212,255,.3)"
+                    font-family="'JetBrains Mono',monospace" font-size="6.5">ORCHESTRATION</text>
+                <circle cx="190" cy="82" r="22" fill="rgba(0,212,255,0.04)" stroke="rgba(0,212,255,0.22)"
+                    stroke-width=".5" />
+                <circle cx="190" cy="82" r="5" fill="rgba(0,212,255,.8)">
+                    <animate attributeName="opacity" values="1;.3;1" dur="2s" repeatCount="indefinite" />
+                </circle>
+                <text x="190" y="63" text-anchor="middle" fill="rgba(0,212,255,.7)"
+                    font-family="'JetBrains Mono',monospace" font-size="7.5">SecRitual</text>
+                <circle cx="289" cy="140" r="16" fill="rgba(0,232,122,0.03)" stroke="rgba(0,232,122,0.18)"
+                    stroke-width=".5" />
+                <circle cx="289" cy="140" r="4" fill="rgba(0,232,122,.6)">
+                    <animate attributeName="opacity" values=".6;.15;.6" dur="2.8s" repeatCount="indefinite" />
+                </circle>
+                <text x="289" y="122" text-anchor="middle" fill="rgba(0,232,122,.45)"
+                    font-family="'JetBrains Mono',monospace" font-size="7">PromptShield</text>
+                <circle cx="289" cy="255" r="16" fill="rgba(0,232,122,0.03)" stroke="rgba(0,232,122,0.15)"
+                    stroke-width=".5" />
+                <circle cx="289" cy="255" r="4" fill="rgba(0,232,122,.5)">
+                    <animate attributeName="opacity" values=".5;.12;.5" dur="3.2s" repeatCount="indefinite" />
+                </circle>
+                <text x="289" y="275" text-anchor="middle" fill="rgba(0,232,122,.4)"
+                    font-family="'JetBrains Mono',monospace" font-size="7">SIFTGuardian</text>
+                <circle cx="91" cy="255" r="16" fill="rgba(167,139,250,0.03)" stroke="rgba(167,139,250,0.15)"
+                    stroke-width=".5" />
+                <circle cx="91" cy="255" r="4" fill="rgba(167,139,250,.5)">
+                    <animate attributeName="opacity" values=".5;.12;.5" dur="2.5s" repeatCount="indefinite" />
+                </circle>
+                <text x="91" y="275" text-anchor="middle" fill="rgba(167,139,250,.4)"
+                    font-family="'JetBrains Mono',monospace" font-size="7">Consent Guard.</text>
+                <circle cx="91" cy="140" r="16" fill="rgba(0,212,255,0.03)" stroke="rgba(0,212,255,0.15)"
+                    stroke-width=".5" />
+                <circle cx="91" cy="140" r="4" fill="rgba(0,212,255,.45)">
+                    <animate attributeName="opacity" values=".45;.1;.45" dur="3.8s" repeatCount="indefinite" />
+                </circle>
+                <text x="91" y="122" text-anchor="middle" fill="rgba(0,212,255,.38)"
+                    font-family="'JetBrains Mono',monospace" font-size="7">CodeSage</text>
+                <line x1="190" y1="162" x2="190" y2="104" stroke="rgba(0,212,255,.2)" stroke-width=".5"
+                    stroke-dasharray="3 5" />
+                <line x1="269" y1="146" x2="214" y2="170" stroke="rgba(0,232,122,.12)" stroke-width=".5"
+                    stroke-dasharray="3 5" />
+                <line x1="269" y1="249" x2="214" y2="210" stroke="rgba(0,232,122,.1)" stroke-width=".5"
+                    stroke-dasharray="3 5" />
+                <line x1="111" y1="249" x2="166" y2="210" stroke="rgba(167,139,250,.12)" stroke-width=".5"
+                    stroke-dasharray="3 5" />
+                <line x1="111" y1="146" x2="166" y2="170" stroke="rgba(0,212,255,.1)" stroke-width=".5"
+                    stroke-dasharray="3 5" />
+                <circle r="2.5" fill="#00D4FF">
+                    <animateMotion dur="2.2s" repeatCount="indefinite" path="M190,162 L190,104" />
+                    <animate attributeName="opacity" values="0;.9;0" dur="2.2s" repeatCount="indefinite" />
+                </circle>
+                <circle r="2" fill="#00E87A">
+                    <animateMotion dur="1.8s" repeatCount="indefinite" begin=".6s" path="M269,146 L214,170" />
+                    <animate attributeName="opacity" values="0;.8;0" dur="1.8s" repeatCount="indefinite" begin=".6s" />
+                </circle>
+            </svg>
+        </div>
+    </section>
+
+    <!-- ══════════ 7. THE BRANCH ══════════ -->
+    <section id="branch" class="centered" data-active="all" style="padding-right:220px">
+        <span class="eyebrow c sr">Architecture</span>
+        <h2 class="sr sr-delay-1">The Ecosystem Branches</h2>
+        <p class="body-text centered sr sr-delay-2">One research lab. Two parallel tracks. The architecture splits —
+            security enforces boundaries, cognition investigates them.</p>
+
+        <svg viewBox="0 0 700 440" fill="none" style="width:100%;max-width:720px;margin:52px auto 0"
+            class="sr sr-delay-3" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="350" cy="68" r="28" fill="rgba(0,212,255,0.06)" stroke="rgba(0,212,255,0.3)" stroke-width="1" />
+            <circle cx="350" cy="68" r="7" fill="rgba(0,212,255,.7)">
+                <animate attributeName="opacity" values="1;.4;1" dur="2.5s" repeatCount="indefinite" />
+            </circle>
+            <text x="350" y="110" text-anchor="middle" fill="rgba(0,212,255,.5)"
+                font-family="'JetBrains Mono',monospace" font-size="8.5">AI Research Lab</text>
+            <line x1="350" y1="96" x2="200" y2="165" stroke="rgba(0,212,255,0.2)" stroke-width=".8" />
+            <line x1="350" y1="96" x2="500" y2="165" stroke="rgba(167,139,250,0.15)" stroke-width=".8" />
+            <rect x="40" y="165" width="320" height="240" rx="6" stroke="rgba(0,212,255,0.12)" stroke-width=".5"
+                fill="rgba(0,212,255,0.02)" />
+            <text x="200" y="150" text-anchor="middle" fill="rgba(0,212,255,0.55)"
+                font-family="'JetBrains Mono',monospace" font-size="9" letter-spacing=".12em">OPERATIONAL
+                SECURITY</text>
+            <circle cx="106" cy="220" r="14" fill="rgba(0,212,255,0.04)" stroke="rgba(0,212,255,0.2)"
+                stroke-width=".5" />
+            <circle cx="106" cy="220" r="4" fill="rgba(0,212,255,.6)">
+                <animate attributeName="opacity" values=".6;.2;.6" dur="2.2s" repeatCount="indefinite" />
+            </circle>
+            <text x="106" y="244" text-anchor="middle" fill="rgba(0,212,255,.45)"
+                font-family="'JetBrains Mono',monospace" font-size="7">PromptShield</text>
+            <circle cx="200" cy="220" r="14" fill="rgba(0,212,255,0.04)" stroke="rgba(0,212,255,0.18)"
+                stroke-width=".5" />
+            <circle cx="200" cy="220" r="4" fill="rgba(0,212,255,.5)">
+                <animate attributeName="opacity" values=".5;.15;.5" dur="2.6s" repeatCount="indefinite" />
+            </circle>
+            <text x="200" y="244" text-anchor="middle" fill="rgba(0,212,255,.4)"
+                font-family="'JetBrains Mono',monospace" font-size="7">SIFTGuardian</text>
+            <circle cx="294" cy="220" r="14" fill="rgba(0,232,122,0.04)" stroke="rgba(0,232,122,0.18)"
+                stroke-width=".5" />
+            <circle cx="294" cy="220" r="4" fill="rgba(0,232,122,.5)">
+                <animate attributeName="opacity" values=".5;.15;.5" dur="3s" repeatCount="indefinite" />
+            </circle>
+            <text x="294" y="244" text-anchor="middle" fill="rgba(0,232,122,.4)"
+                font-family="'JetBrains Mono',monospace" font-size="7">Consent Guard.</text>
+            <circle cx="106" cy="310" r="14" fill="rgba(0,212,255,0.04)" stroke="rgba(0,212,255,0.16)"
+                stroke-width=".5" />
+            <circle cx="106" cy="310" r="4" fill="rgba(0,212,255,.45)">
+                <animate attributeName="opacity" values=".45;.1;.45" dur="3.4s" repeatCount="indefinite" />
+            </circle>
+            <text x="106" y="334" text-anchor="middle" fill="rgba(0,212,255,.38)"
+                font-family="'JetBrains Mono',monospace" font-size="7">CodeSage</text>
+            <circle cx="200" cy="310" r="14" fill="rgba(0,212,255,0.04)" stroke="rgba(0,212,255,0.2)"
+                stroke-width=".5" />
+            <circle cx="200" cy="310" r="4" fill="rgba(0,212,255,.55)">
+                <animate attributeName="opacity" values=".55;.2;.55" dur="2.8s" repeatCount="indefinite" />
+            </circle>
+            <text x="200" y="334" text-anchor="middle" fill="rgba(0,212,255,.45)"
+                font-family="'JetBrains Mono',monospace" font-size="7">SecRitual</text>
+            <circle cx="294" cy="310" r="14" fill="rgba(0,212,255,0.04)" stroke="rgba(0,212,255,0.25)"
+                stroke-width=".5" />
+            <circle cx="294" cy="310" r="5" fill="rgba(0,212,255,.7)">
+                <animate attributeName="r" values="4;6;4" dur="3s" repeatCount="indefinite" />
+            </circle>
+            <text x="294" y="334" text-anchor="middle" fill="rgba(0,212,255,.55)"
+                font-family="'JetBrains Mono',monospace" font-size="7">CyberMesh</text>
+            <rect x="340" y="165" width="320" height="240" rx="6" stroke="rgba(167,139,250,0.1)" stroke-width=".5"
+                fill="rgba(167,139,250,0.015)" stroke-dasharray="3 5" />
+            <text x="500" y="150" text-anchor="middle" fill="rgba(167,139,250,0.45)"
+                font-family="'JetBrains Mono',monospace" font-size="9" letter-spacing=".12em">COGNITIVE
+                INTELLIGENCE</text>
+            <circle cx="420" cy="265" r="26" fill="rgba(167,139,250,0.04)" stroke="rgba(167,139,250,0.22)"
+                stroke-width=".5" />
+            <circle cx="420" cy="265" r="6" fill="rgba(167,139,250,.6)">
+                <animate attributeName="opacity" values=".6;.2;.6" dur="3.5s" repeatCount="indefinite" />
+            </circle>
+            <text x="420" y="306" text-anchor="middle" fill="rgba(167,139,250,.45)"
+                font-family="'JetBrains Mono',monospace" font-size="7.5">OpenMind Nexus</text>
+            <circle cx="580" cy="265" r="26" fill="rgba(167,139,250,0.03)" stroke="rgba(167,139,250,0.18)"
+                stroke-width=".5" stroke-dasharray="3 4" />
+            <circle cx="580" cy="265" r="6" fill="rgba(167,139,250,.5)">
+                <animate attributeName="opacity" values=".5;.15;.5" dur="4s" repeatCount="indefinite" />
+            </circle>
+            <text x="580" y="306" text-anchor="middle" fill="rgba(167,139,250,.38)"
+                font-family="'JetBrains Mono',monospace" font-size="7.5">NeuroAccess</text>
+            <line x1="106" y1="234" x2="106" y2="296" stroke="rgba(0,212,255,.08)" stroke-width=".5"
+                stroke-dasharray="2 4" />
+            <line x1="200" y1="234" x2="200" y2="296" stroke="rgba(0,212,255,.08)" stroke-width=".5"
+                stroke-dasharray="2 4" />
+            <circle r="2.5" fill="#00D4FF">
+                <animateMotion dur="3.2s" repeatCount="indefinite" path="M350,96 L200,165" />
+                <animate attributeName="opacity" values="0;.8;0" dur="3.2s" repeatCount="indefinite" />
+            </circle>
+            <circle r="2" fill="#A78BFA">
+                <animateMotion dur="3.2s" repeatCount="indefinite" begin="1.2s" path="M350,96 L500,165" />
+                <animate attributeName="opacity" values="0;.7;0" dur="3.2s" repeatCount="indefinite" begin="1.2s" />
+            </circle>
+        </svg>
+    </section>
+
+    <!-- ══════════ 8. COGNITIVE INTELLIGENCE ══════════ -->
+    <section id="cognitive" class="centered" data-active="openmind,neuroaccess"
+        style="background:linear-gradient(180deg,#06040e,#050505);padding-right:220px">
+        <span class="eyebrow v sr">Cognitive Intelligence Track</span>
+        <h2 class="sr sr-delay-1" style="max-width:660px;color:var(--violet)">Beyond Systems.<br>The Human Layer.</h2>
+        <p class="body-text centered sr sr-delay-2">Exploring Information Integrity, Trust Formation, Cognitive
+            Security, and Human Perception — the substrate on which all AI trust must ultimately rest.</p>
+        <div class="cog-nodes sr sr-delay-3">
+            <div class="cog-node">
+                <div class="cog-orb">
+                    <div class="cog-ring"></div>
+                    <div class="cog-ring2"></div>
+                    <div class="cog-orb-core"></div>
+                </div>
+                <div class="cog-label">OpenMind Nexus</div>
+                <div class="cog-desc">Information integrity &amp; media trust formation</div>
+            </div>
+            <div class="cog-node">
+                <div class="cog-orb" style="border-color:rgba(167,139,250,0.18)">
+                    <div class="cog-ring" style="animation-direction:reverse;animation-duration:16s"></div>
+                    <div class="cog-orb-core" style="animation-delay:.8s;width:14px;height:14px"></div>
+                </div>
+                <div class="cog-label">NeuroAccess</div>
+                <div class="cog-desc">Cognitive security &amp; human perception research</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════ 9. WHY THIS EXISTS ══════════ -->
+    <section id="origin" data-active="none" style="padding-right:220px">
+        <span class="eyebrow c sr">Origin</span>
+        <h2 class="sr sr-delay-1" style="max-width:540px">Why This<br>Exists</h2>
+        <div class="origin-path">
+            <div class="origin-step sr">
+                <div class="origin-year">ORIGIN</div>
+                <div class="origin-text">
+                    <div class="origin-title">A curiosity about how systems break</div>
+                    <div class="origin-sub">Not the vulnerabilities in code — but the vulnerabilities in trust. The gap
+                        between what a system is supposed to do and what it actually does.</div>
+                </div>
+            </div>
+            <div class="origin-step sr sr-delay-1 active-step">
+                <div class="origin-year">THEN</div>
+                <div class="origin-text">
+                    <div class="origin-title">AI changed everything about that question</div>
+                    <div class="origin-sub">Intelligent systems don't just execute logic. They reason. They infer. And
+                        they can be deceived — at the reasoning layer, not the network layer.</div>
+                </div>
+            </div>
+            <div class="origin-step sr sr-delay-2 active-step">
+                <div class="origin-year">SHIFT</div>
+                <div class="origin-text">
+                    <div class="origin-title">Security became orchestration</div>
+                    <div class="origin-sub">Protecting an AI system is not about firewalls. It requires trust
+                        propagation across every layer — from input validation to output reasoning.</div>
+                </div>
+            </div>
+            <div class="origin-step sr sr-delay-3 active-step">
+                <div class="origin-year">NOW</div>
+                <div class="origin-text">
+                    <div class="origin-title">The laboratory is the answer</div>
+                    <div class="origin-sub">Eight interconnected systems — each exploring a different layer of trust,
+                        security, and cognition. Not projects. A living research architecture.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════ 10. FUTURE VISION ══════════ -->
+    <section id="future" data-active="all" style="padding-right:220px">
+        <div class="sr">
+            <span class="eyebrow c">Looking Forward</span>
+            <h2 style="max-width:520px">The Future Requires<br><span class="accent-c">Trustworthy Intelligence</span>
+            </h2>
+            <ul style="margin-top:44px;list-style:none;display:flex;flex-direction:column;gap:18px">
+                <li style="display:flex;gap:14px;font-size:14px;color:var(--muted)"><span
+                        style="flex-shrink:0;width:4px;height:4px;border-radius:50%;background:var(--cyan);margin-top:8px"></span>Securing
+                    AI workflows end-to-end, layer by layer</li>
+                <li style="display:flex;gap:14px;font-size:14px;color:var(--muted)"><span
+                        style="flex-shrink:0;width:4px;height:4px;border-radius:50%;background:var(--emerald);margin-top:8px"></span>Orchestrating
+                    trust across heterogeneous intelligence layers</li>
+                <li style="display:flex;gap:14px;font-size:14px;color:var(--muted)"><span
+                        style="flex-shrink:0;width:4px;height:4px;border-radius:50%;background:var(--violet);margin-top:8px"></span>Making
+                    reasoning transparent, auditable, and accountable</li>
+                <li style="display:flex;gap:14px;font-size:14px;color:var(--muted)"><span
+                        style="flex-shrink:0;width:4px;height:4px;border-radius:50%;background:var(--cyan);margin-top:8px"></span>Bridging
+                    technical security with cognitive security research</li>
+            </ul>
+            <div class="btns" style="margin-top:48px">
+                <a href="#process" class="btn-p">Explore Ecosystem</a>
+                <a href="#" class="btn-o">View GitHub ↗</a>
+            </div>
+        </div>
+        <svg viewBox="0 0 360 500" fill="none" class="sr sr-delay-1" style="width:100%;max-width:380px">
+            <circle cx="180" cy="250" r="160" fill="rgba(0,212,255,0.02)" stroke="rgba(0,212,255,0.04)"
+                stroke-width="1" />
+            <circle cx="180" cy="250" r="120" stroke="rgba(0,212,255,0.06)" stroke-width="1" stroke-dasharray="3 7" />
+            <circle cx="180" cy="250" r="80" stroke="rgba(0,212,255,0.1)" stroke-width="1" />
+            <circle cx="180" cy="250" r="30" fill="rgba(0,212,255,0.07)" stroke="rgba(0,212,255,0.35)" stroke-width="1">
+                <animate attributeName="r" values="28;33;28" dur="4s" repeatCount="indefinite" />
+            </circle>
+            <text x="180" y="247" text-anchor="middle" fill="rgba(0,212,255,.6)"
+                font-family="'JetBrains Mono',monospace" font-size="7.5" letter-spacing=".07em">CyberMesh</text>
+            <text x="180" y="259" text-anchor="middle" fill="rgba(0,212,255,.25)"
+                font-family="'JetBrains Mono',monospace" font-size="6">ORCHESTRATION</text>
+            <circle cx="180" cy="90" r="16" fill="rgba(0,232,122,0.04)" stroke="rgba(0,232,122,0.22)"
+                stroke-width=".5" />
+            <circle cx="180" cy="90" r="4" fill="rgba(0,232,122,.7)">
+                <animate attributeName="opacity" values="1;.3;1" dur="2.2s" repeatCount="indefinite" />
+            </circle>
+            <text x="180" y="73" text-anchor="middle" fill="rgba(0,232,122,.5)" font-family="'JetBrains Mono',monospace"
+                font-size="7.5">PromptShield</text>
+            <circle cx="305" cy="168" r="13" fill="rgba(0,212,255,0.03)" stroke="rgba(0,212,255,0.18)"
+                stroke-width=".5" />
+            <circle cx="305" cy="168" r="3" fill="rgba(0,212,255,.55)">
+                <animate attributeName="opacity" values=".55;.15;.55" dur="2.8s" repeatCount="indefinite" />
+            </circle>
+            <text x="305" y="152" text-anchor="middle" fill="rgba(0,212,255,.38)"
+                font-family="'JetBrains Mono',monospace" font-size="7">SIFTGuardian</text>
+            <circle cx="305" cy="342" r="13" fill="rgba(0,212,255,0.03)" stroke="rgba(0,212,255,0.18)"
+                stroke-width=".5" />
+            <circle cx="305" cy="342" r="3" fill="rgba(0,212,255,.5)">
+                <animate attributeName="opacity" values=".5;.1;.5" dur="3.2s" repeatCount="indefinite" />
+            </circle>
+            <text x="305" y="362" text-anchor="middle" fill="rgba(0,212,255,.35)"
+                font-family="'JetBrains Mono',monospace" font-size="7">SecRitual</text>
+            <circle cx="180" cy="415" r="13" fill="rgba(167,139,250,0.03)" stroke="rgba(167,139,250,0.18)"
+                stroke-width=".5" />
+            <circle cx="180" cy="415" r="3" fill="rgba(167,139,250,.5)">
+                <animate attributeName="opacity" values=".5;.12;.5" dur="3.8s" repeatCount="indefinite" />
+            </circle>
+            <text x="180" y="434" text-anchor="middle" fill="rgba(167,139,250,.38)"
+                font-family="'JetBrains Mono',monospace" font-size="7">OpenMind</text>
+            <circle cx="55" cy="342" r="13" fill="rgba(167,139,250,0.03)" stroke="rgba(167,139,250,0.15)"
+                stroke-width=".5" />
+            <circle cx="55" cy="342" r="3" fill="rgba(167,139,250,.45)">
+                <animate attributeName="opacity" values=".45;.1;.45" dur="4.2s" repeatCount="indefinite" />
+            </circle>
+            <text x="55" y="362" text-anchor="middle" fill="rgba(167,139,250,.32)"
+                font-family="'JetBrains Mono',monospace" font-size="7">NeuroAccess</text>
+            <circle cx="55" cy="168" r="13" fill="rgba(0,232,122,0.03)" stroke="rgba(0,232,122,0.15)"
+                stroke-width=".5" />
+            <circle cx="55" cy="168" r="3" fill="rgba(0,232,122,.45)">
+                <animate attributeName="opacity" values=".45;.1;.45" dur="2.5s" repeatCount="indefinite" />
+            </circle>
+            <text x="55" y="152" text-anchor="middle" fill="rgba(0,232,122,.32)"
+                font-family="'JetBrains Mono',monospace" font-size="7">CodeSage</text>
+            <line x1="180" y1="220" x2="180" y2="106" stroke="rgba(0,212,255,.12)" stroke-width=".5"
+                stroke-dasharray="3 5" />
+            <line x1="206" y1="230" x2="292" y2="176" stroke="rgba(0,212,255,.1)" stroke-width=".5"
+                stroke-dasharray="3 5" />
+            <line x1="206" y1="270" x2="292" y2="334" stroke="rgba(0,212,255,.1)" stroke-width=".5"
+                stroke-dasharray="3 5" />
+            <line x1="180" y1="280" x2="180" y2="402" stroke="rgba(167,139,250,.1)" stroke-width=".5"
+                stroke-dasharray="3 5" />
+            <line x1="154" y1="270" x2="68" y2="334" stroke="rgba(167,139,250,.08)" stroke-width=".5"
+                stroke-dasharray="3 5" />
+            <line x1="154" y1="230" x2="68" y2="176" stroke="rgba(0,232,122,.08)" stroke-width=".5"
+                stroke-dasharray="3 5" />
+            <circle r="2.5" fill="#00D4FF">
+                <animateMotion dur="2.6s" repeatCount="indefinite" path="M180,220 L180,106" />
+                <animate attributeName="opacity" values="0;.9;0" dur="2.6s" repeatCount="indefinite" />
+            </circle>
+            <circle r="2" fill="#A78BFA">
+                <animateMotion dur="3s" repeatCount="indefinite" begin="1s" path="M180,280 L180,402" />
+                <animate attributeName="opacity" values="0;.7;0" dur="3s" repeatCount="indefinite" begin="1s" />
+            </circle>
+        </svg>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <span class="footer-mono">AXON.LAB — AI SECURITY RESEARCH</span>
+        <span class="footer-mono" id="sys-time">SYSTEM ONLINE</span>
+    </footer>
+
+    <script>
+        const sections = document.querySelectorAll('section[id]');
+        const allNodes = ['promptshield', 'sift', 'consent', 'codesage', 'secritual', 'cybermesh', 'openmind', 'neuroaccess'];
+
+        function setEcoState(activeStr) {
+            if (activeStr === 'all') {
+                allNodes.forEach(n => {
+                    const dot = document.getElementById('dot-' + n);
+                    const name = document.getElementById('name-' + n);
+                    if (dot) { dot.classList.remove('dim'); dot.classList.add('active'); }
+                    if (name) { name.classList.remove('dim', 'active-c', 'active-v'); name.classList.add(n === 'openmind' || n === 'neuroaccess' ? 'active-v' : 'active-c'); }
+                });
+                return;
+            }
+            if (activeStr === 'none') {
+                allNodes.forEach(n => {
+                    const dot = document.getElementById('dot-' + n);
+                    const name = document.getElementById('name-' + n);
+                    if (dot) { dot.classList.remove('active', 'dim'); }
+                    if (name) { name.classList.remove('active-c', 'active-v', 'dim'); }
+                });
+                return;
+            }
+            const active = activeStr ? activeStr.split(',') : [];
+            allNodes.forEach(n => {
+                const dot = document.getElementById('dot-' + n);
+                const name = document.getElementById('name-' + n);
+                if (!dot) return;
+                if (active.includes(n)) {
+                    dot.classList.remove('dim');
+                    dot.classList.add('active');
+                    name.classList.remove('dim');
+                    name.classList.add(n === 'openmind' || n === 'neuroaccess' ? 'active-v' : 'active-c');
+                } else {
+                    dot.classList.remove('active');
+                    dot.classList.add('dim');
+                    name.classList.remove('active-c', 'active-v');
+                    name.classList.add('dim');
+                }
+            });
+        }
+
+        const obs = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    const sec = e.target;
+                    setEcoState(sec.dataset.active || 'none');
+                }
+            });
+        }, { threshold: 0.4 });
+
+        sections.forEach(s => obs.observe(s));
+
+        const revEls = document.querySelectorAll('.sr');
+        const revObs = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        revEls.forEach(e => revObs.observe(e));
+
+        function scrollToSection(id) {
+            const el = document.getElementById(id);
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function updateClock() {
+            const now = new Date();
+            const t = now.toUTCString().split(' ')[4];
+            document.getElementById('sys-time').textContent = 'UTC ' + t + ' — OPERATIONAL';
+        }
+        updateClock();
+        setInterval(updateClock, 1000);
+
+        setEcoState('all');
+    </script>
+
+</html>

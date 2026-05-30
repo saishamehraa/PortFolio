@@ -1,64 +1,51 @@
-import { motion } from 'motion/react';
-import { Mail, Github, Linkedin } from 'lucide-react';
+import React from 'react';
 
 export function FutureVision() {
-  const socials = [
-    { name: 'GitHub', icon: <Github className="w-6 h-6" />, href: 'https://github.com/saishamehraa' },
-    { name: 'LinkedIn', icon: <Linkedin className="w-6 h-6" />, href: '#' },
-    { name: 'Email', icon: <Mail className="w-6 h-6" />, href: 'mailto:saishamehra@example.com' },
-  ];
-
   return (
-    <section id="future" className="relative min-h-[100vh] flex flex-col justify-center bg-[#050505] py-40 overflow-hidden">
-      <div className="container mx-auto px-8 sm:px-12 lg:px-24 w-full max-w-[2000px]">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-32">
-          
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1.2, ease: "easeOut" }}
-            viewport={{ once: true, margin: "-150px" }}
-            className="w-full lg:w-[60%] space-y-16"
-          >
-            <p className="font-mono text-sm tracking-[0.3em] text-[#00D4FF] uppercase mb-12">
-              Looking Forward
-            </p>
-            <h2 className="font-inter text-6xl sm:text-7xl md:text-[7rem] lg:text-[8rem] text-[#F2F2F2] leading-[0.95] tracking-tight font-light">
-              The Future<br />Requires<br />Trustworthy<br />Intelligence.
-            </h2>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1.2, ease: "easeOut", delay: 0.2 }}
-            viewport={{ once: true, margin: "-150px" }}
-            className="w-full lg:w-[40%] flex flex-col gap-16 lg:pl-16 border-l border-white/5"
-          >
-            <p className="font-inter text-3xl md:text-4xl text-[#8A939C] font-light leading-relaxed max-w-lg">
-              Building systems that secure AI workflows.
-            </p>
-            
-            <div className="flex flex-col gap-10">
-              {socials.map((social) => (
-                <a
-                  key={social.name}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-6 text-[#F2F2F2]/50 hover:text-[#00D4FF] transition-colors duration-500 font-mono tracking-[0.2em] uppercase text-xl md:text-2xl w-fit group"
-                >
-                  <div className="p-4 rounded-full border border-white/10 group-hover:border-[#00D4FF]/50 transition-colors duration-500 bg-[#0A0A0A]">
-                    {social.icon}
-                  </div>
-                  <span>{social.name}</span>
-                </a>
-              ))}
-            </div>
-          </motion.div>
-
+    <>
+      <section id="future" data-active="all" style={{ paddingRight: '220px', paddingBottom: '120px' }}>
+        <div className="sr">
+          <span className="eyebrow c">The Horizon</span>
+          <h2>The Ecosystem<br />is <span className="accent-c">Expanding.</span></h2>
+          <p className="body-text">
+            Security is not a feature. It is an architecture. We are building the foundational modules for a future where machine intelligence operates transparently, safely, and entirely within the boundaries of human trust.
+          </p>
+          <div className="btns">
+            <a href="mailto:contact@lab.com" className="btn-p">Partner with Lab</a>
+            <a href="#" className="btn-o">Read Research ↗</a>
+          </div>
         </div>
-      </div>
-    </section>
+        <div className="sr sr-delay-2" style={{ width: '100%', height: '100%', position: 'relative' }}>
+          <svg viewBox="0 0 400 400" fill="none" style={{ width: '100%', height: '100%' }}>
+            <circle cx="200" cy="200" r="120" stroke="rgba(0,212,255,0.06)" strokeWidth="1" />
+            <circle cx="200" cy="200" r="160" stroke="rgba(0,212,255,0.04)" strokeWidth="1" strokeDasharray="4 6" />
+            <circle cx="200" cy="200" r="80" fill="rgba(0,212,255,0.02)" stroke="rgba(0,212,255,0.12)" strokeWidth="1" />
+            <circle cx="200" cy="200" r="12" fill="rgba(0,212,255,0.1)" stroke="rgba(0,212,255,0.4)" strokeWidth="1">
+              <animate attributeName="r" values="10;14;10" dur="4s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="115" cy="115" r="3" fill="var(--cyan)">
+              <animate attributeName="opacity" values="1;.2;1" dur="3s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="285" cy="115" r="3" fill="var(--emerald)">
+              <animate attributeName="opacity" values="1;.2;1" dur="2s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="115" cy="285" r="3" fill="var(--violet)">
+              <animate attributeName="opacity" values="1;.2;1" dur="4s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="285" cy="285" r="3" fill="var(--cyan)">
+              <animate attributeName="opacity" values="1;.2;1" dur="2.5s" repeatCount="indefinite" />
+            </circle>
+            <line x1="115" y1="115" x2="200" y2="200" stroke="rgba(0,212,255,.1)" strokeWidth=".5" />
+            <line x1="285" y1="115" x2="200" y2="200" stroke="rgba(0,232,122,.1)" strokeWidth=".5" />
+            <line x1="115" y1="285" x2="200" y2="200" stroke="rgba(167,139,250,.1)" strokeWidth=".5" />
+            <line x1="285" y1="285" x2="200" y2="200" stroke="rgba(0,212,255,.1)" strokeWidth=".5" />
+          </svg>
+        </div>
+      </section>
+      <footer>
+        <div className="footer-mono">© 2024 AI Security Research Lab.</div>
+        <div className="footer-mono" style={{ color: 'rgba(0,212,255,.5)' }}>SYSTEM_STATUS: NOMINAL</div>
+      </footer>
+    </>
   );
 }
