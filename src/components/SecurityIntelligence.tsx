@@ -57,19 +57,19 @@ export function SecurityIntelligence() {
                 </motion.div>
 
                 {/* Connecting Signal */}
-                <svg className="absolute inset-0 w-full h-full pointer-events-none">
+                <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="none">
                   <motion.path 
-                    d="M 30% 35% L 70% 65%" 
+                    d="M 30 35 L 70 65" 
                     stroke="#F0F4FF" 
-                    strokeWidth="1" 
-                    strokeDasharray="4 4" 
+                    strokeWidth="0.5" 
+                    strokeDasharray="2 2" 
                     strokeOpacity={0.2} 
                     fill="none" 
                   />
                   <motion.circle 
-                    r="3" 
+                    r="1" 
                     fill="#F0F4FF" 
-                    animate={{ cx: ["30%", "70%"], cy: ["35%", "65%"] }}
+                    animate={{ cx: ["30", "70"], cy: ["35", "65"] }}
                     transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
                   />
                 </svg>
