@@ -1,17 +1,10 @@
 import { motion } from 'motion/react';
-import { Database, Shield, Activity, Cpu } from 'lucide-react';
 
 export function OrchestrationFlow() {
-  const inputLayers = [
-    { id: 'promptshield', name: "PromptShield", icon: <Shield className="w-5 h-5 text-[#5CF0FF]" /> },
-    { id: 'siftguardian', name: "SIFTGuardian", icon: <Activity className="w-5 h-5 text-[#4DA6FF]" /> },
-    { id: 'consentguardian', name: "Consent", icon: <Database className="w-5 h-5 text-[#A68CFF]" /> },
-    { id: 'codesage', name: "CodeSage", icon: <Cpu className="w-5 h-5 text-[#F0F4FF]" /> },
-  ];
-
   return (
-    <section id="orchestration" className="relative min-h-screen py-32 bg-[#050505] flex items-center justify-center border-t border-white/5">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+    <section id="orchestration" className="relative min-h-[100vh] py-32 bg-[#0A0A0A] flex flex-col justify-center border-t border-white/5 overflow-hidden">
+      <div className="container mx-auto px-8 sm:px-12 lg:px-24 w-full max-w-[2400px]">
+        
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -19,93 +12,84 @@ export function OrchestrationFlow() {
           viewport={{ once: true, margin: "-100px" }}
           className="text-center mb-32"
         >
-          <h2 className="font-orbitron text-4xl sm:text-5xl md:text-6xl text-[#F0F4FF] tracking-wide font-light">
-            Trust Becomes Architecture.
+          <p className="font-mono text-sm tracking-[0.2em] text-[#00D4FF]/70 uppercase mb-8">
+            Orchestration
+          </p>
+          <h2 className="font-inter text-5xl sm:text-6xl md:text-[6rem] text-[#F2F2F2] tracking-tight font-light">
+            How Systems<br />Work Together
           </h2>
         </motion.div>
 
-        <div className="flex flex-col items-center justify-center relative w-full max-w-4xl mx-auto mt-20">
+        {/* Absurdly Large Flowchart */}
+        <div className="flex flex-col xl:flex-row items-center justify-center w-full gap-8 xl:gap-0 mt-20 relative">
           
-          <div className="grid grid-cols-4 gap-4 w-full">
-            {inputLayers.map((node, i) => (
-              <motion.div 
-                key={node.id} 
-                className="flex flex-col items-center z-10 relative"
-                initial={{ opacity: 0, y: -20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1.0, delay: i * 0.1, ease: "easeOut" }}
-                viewport={{ once: true, margin: "-100px" }}
-              >
-                <div className="mb-3 p-4 bg-[#0A0A0A] rounded-xl border border-white/10 shadow-[0_0_20px_rgba(0,0,0,0.8)]">
-                  {node.icon}
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          <div className="flex w-full justify-center h-32 relative overflow-hidden">
-            <motion.div 
-              className="absolute top-0 w-3/4 h-1/2 border-b border-l border-r rounded-b-xl border-[#5CF0FF]/20"
-              initial={{ height: 0, opacity: 0 }}
-              whileInView={{ height: '50%', opacity: 1 }}
-              transition={{ duration: 1.2, delay: 0.6, ease: "easeInOut" }}
-              viewport={{ once: true, margin: "-100px" }}
-            />
-            <motion.div 
-              className="absolute bottom-0 h-1/2 border-l border-[#5CF0FF]/30"
-              initial={{ height: 0, opacity: 0 }}
-              whileInView={{ height: '50%', opacity: 1 }}
-              transition={{ duration: 1.0, delay: 1.4, ease: "easeInOut" }}
-              viewport={{ once: true, margin: "-100px" }}
-            />
-            <motion.div 
-              className="absolute w-1.5 h-6 bg-[#5CF0FF] shadow-[0_0_15px_#5CF0FF] rounded-full"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              animate={{ top: ['0%', '100%'] }}
-              transition={{ opacity: { duration: 1, delay: 2.5 }, top: { duration: 3, repeat: Infinity, ease: "linear" } }}
-              viewport={{ once: true, margin: "-100px" }}
-            />
-          </div>
-
+          {/* Block 1: Modules */}
           <motion.div 
-            className="w-full max-w-lg p-8 bg-[#0A0A0A] border border-[#5CF0FF]/20 rounded-2xl text-center z-10 shadow-[0_0_50px_rgba(92,240,255,0.05)]"
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.0, delay: 2.0, ease: "easeOut" }}
+            className="flex-1 w-full xl:w-auto p-12 md:p-24 border border-white/10 rounded-xl text-center bg-[#050505] relative z-10"
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1.2, ease: "easeOut" }}
             viewport={{ once: true, margin: "-100px" }}
           >
-            <h3 className="font-orbitron text-4xl tracking-widest text-[#F0F4FF] mb-4">SecRitual</h3>
-            <p className="text-[#5CF0FF]/70 text-sm uppercase tracking-[0.3em] font-semibold">Reasoning</p>
+            <p className="font-mono text-[#8A939C] text-xs md:text-sm tracking-[0.2em] uppercase mb-8">Layer 01</p>
+            <h3 className="font-inter text-4xl md:text-5xl lg:text-6xl text-[#F2F2F2] font-light mb-12">Modules</h3>
+            <div className="font-mono text-[#8A939C] text-sm md:text-lg tracking-widest leading-[2.5]">
+              PromptShield<br />SIFTGuardian<br />Consent Guardian<br />CodeSage
+            </div>
           </motion.div>
 
-          <div className="flex w-full justify-center h-24 relative overflow-hidden">
+          {/* Arrow 1 */}
+          <div className="hidden xl:flex w-48 h-px bg-gradient-to-r from-white/10 via-[#00D4FF]/50 to-white/10 relative">
+            <div className="absolute right-0 top-1/2 -translate-y-1/2 w-0 h-0 border-y-[6px] border-y-transparent border-l-[10px] border-l-[#00D4FF]/60" />
             <motion.div 
-              className="h-full border-l border-[#A68CFF]/30"
-              initial={{ height: 0, opacity: 0 }}
-              whileInView={{ height: '100%', opacity: 1 }}
-              transition={{ duration: 1.0, delay: 2.8, ease: "easeInOut" }}
-              viewport={{ once: true, margin: "-100px" }}
-            />
-            <motion.div 
-              className="absolute w-1.5 h-6 bg-[#A68CFF] shadow-[0_0_15px_#A68CFF] rounded-full"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              animate={{ top: ['0%', '100%'] }}
-              transition={{ opacity: { duration: 1, delay: 3.5 }, top: { duration: 3, repeat: Infinity, ease: "linear" } }}
-              viewport={{ once: true, margin: "-100px" }}
+              className="absolute top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-[#00D4FF]"
+              animate={{ left: ["0%", "100%"], opacity: [0, 1, 0] }}
+              transition={{ duration: 2.5, repeat: Infinity, ease: "linear" }}
             />
           </div>
 
+          <div className="xl:hidden h-24 w-px bg-gradient-to-b from-white/10 via-[#00D4FF]/50 to-white/10 relative" />
+
+          {/* Block 2: SecRitual */}
           <motion.div 
-            className="w-full max-w-2xl p-10 bg-[#0A0A0A] border border-[#A68CFF]/20 rounded-2xl text-center z-10 shadow-[0_0_50px_rgba(166,140,255,0.05)]"
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.0, delay: 3.6, ease: "easeOut" }}
+            className="flex-1 w-full xl:w-auto p-12 md:p-24 border border-[#00D4FF]/20 rounded-xl text-center bg-[#050505] relative z-10 shadow-[0_0_80px_rgba(0,212,255,0.03)]"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.2, ease: "easeOut", delay: 0.2 }}
             viewport={{ once: true, margin: "-100px" }}
           >
-            <h3 className="font-orbitron text-5xl tracking-widest text-[#F0F4FF] mb-4">CyberMesh</h3>
-            <p className="text-[#A68CFF]/70 text-sm uppercase tracking-[0.3em] font-semibold">Orchestration</p>
+            <p className="font-mono text-[#00D4FF]/70 text-xs md:text-sm tracking-[0.2em] uppercase mb-8">Layer 02</p>
+            <h3 className="font-inter text-4xl md:text-5xl lg:text-6xl text-[#F2F2F2] font-light mb-12">Reasoning</h3>
+            <div className="font-mono text-[#00D4FF] text-xl md:text-2xl tracking-widest uppercase">
+              SecRitual
+            </div>
+          </motion.div>
+
+          {/* Arrow 2 */}
+          <div className="hidden xl:flex w-48 h-px bg-gradient-to-r from-[#00D4FF]/30 via-[#00D4FF]/80 to-[#00D4FF]/30 relative">
+            <div className="absolute right-0 top-1/2 -translate-y-1/2 w-0 h-0 border-y-[6px] border-y-transparent border-l-[10px] border-l-[#00D4FF]/80" />
+            <motion.div 
+              className="absolute top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-[#00D4FF]"
+              animate={{ left: ["0%", "100%"], opacity: [0, 1, 0] }}
+              transition={{ duration: 2.5, repeat: Infinity, ease: "linear", delay: 1 }}
+            />
+          </div>
+
+          <div className="xl:hidden h-24 w-px bg-gradient-to-b from-[#00D4FF]/30 via-[#00D4FF]/80 to-[#00D4FF]/30 relative" />
+
+          {/* Block 3: CyberMesh */}
+          <motion.div 
+            className="flex-1 w-full xl:w-auto p-12 md:p-24 border border-[#00D4FF]/40 rounded-xl text-center bg-[#050505] relative z-10 shadow-[0_0_120px_rgba(0,212,255,0.08)]"
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1.2, ease: "easeOut", delay: 0.4 }}
+            viewport={{ once: true, margin: "-100px" }}
+          >
+            <p className="font-mono text-[#00D4FF] text-xs md:text-sm tracking-[0.2em] uppercase mb-8">Layer 03</p>
+            <h3 className="font-inter text-4xl md:text-5xl lg:text-6xl text-[#F2F2F2] font-light mb-12">Orchestration</h3>
+            <div className="font-mono text-[#00D4FF] text-2xl md:text-3xl tracking-widest uppercase font-bold">
+              CyberMesh
+            </div>
           </motion.div>
 
         </div>

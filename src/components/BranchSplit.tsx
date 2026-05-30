@@ -1,40 +1,109 @@
 import { motion } from 'motion/react';
-import { GitBranch } from 'lucide-react';
 
 export function BranchSplit() {
   return (
-    <section id="branch-split" className="relative min-h-[80vh] flex items-center justify-center bg-[#050505] py-32 border-t border-white/5 overflow-hidden">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl text-center relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.1, ease: "easeOut" }}
-          viewport={{ once: true, margin: "-100px" }}
-          className="flex flex-col items-center gap-16"
-        >
-          <div className="p-6 rounded-full border border-white/10 bg-white/5">
-            <GitBranch className="w-12 h-12 text-[#F0F4FF]/50" />
-          </div>
+    <section id="branch-split" className="relative min-h-[120vh] flex flex-col items-center bg-[#050505] overflow-hidden">
+      
+      {/* Massive Vertical Line dropping in */}
+      <motion.div 
+        className="w-1 h-[30vh] bg-gradient-to-b from-[#00D4FF]/20 to-[#00D4FF]"
+        initial={{ height: 0 }}
+        whileInView={{ height: '30vh' }}
+        transition={{ duration: 1.5, ease: "easeOut" }}
+        viewport={{ once: true, margin: "-100px" }}
+      />
+      
+      {/* The Central Node */}
+      <motion.div
+        className="w-8 h-8 rounded-full bg-[#00D4FF] shadow-[0_0_60px_#00D4FF] z-10"
+        initial={{ scale: 0 }}
+        whileInView={{ scale: 1 }}
+        transition={{ duration: 0.5, delay: 1.5 }}
+        viewport={{ once: true }}
+      />
 
-          <h2 className="font-orbitron text-4xl sm:text-5xl md:text-6xl text-[#F0F4FF] tracking-wide font-light leading-tight">
-            The Architecture Diverges.
-          </h2>
-          
-          <div className="flex flex-col md:flex-row gap-12 md:gap-32 w-full justify-center mt-12">
-            <div className="text-center space-y-4">
-              <h3 className="font-orbitron text-xl text-[#A68CFF] uppercase tracking-widest">Operational Track</h3>
-              <p className="text-[#F0F4FF]/50 font-light">Infrastructure Security & Response</p>
-            </div>
-            
-            <div className="hidden md:block w-px h-24 bg-gradient-to-b from-white/20 to-transparent" />
-            
-            <div className="text-center space-y-4">
-              <h3 className="font-orbitron text-xl text-[#F0F4FF] uppercase tracking-widest">Cognitive Track</h3>
-              <p className="text-[#F0F4FF]/50 font-light">Human Perception & Trust Formation</p>
-            </div>
-          </div>
+      {/* The Enormous Split Geometry */}
+      <div className="relative w-[80vw] max-w-[1200px] flex justify-between h-[20vh]">
+        <motion.div 
+          className="absolute left-1/2 top-0 h-1 bg-[#00D4FF]"
+          style={{ transformOrigin: 'left' }}
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          transition={{ duration: 1.5, delay: 2, ease: "easeOut" }}
+          viewport={{ once: true }}
+          style={{ width: '50%', left: '0%' }}
+        />
+        <motion.div 
+          className="absolute right-1/2 top-0 h-1 bg-gradient-to-r from-[#00D4FF] to-[#A78BFA]"
+          style={{ transformOrigin: 'left' }}
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          transition={{ duration: 1.5, delay: 2, ease: "easeOut" }}
+          viewport={{ once: true }}
+          style={{ width: '50%', right: '0%' }}
+        />
+
+        <motion.div 
+          className="absolute left-0 top-0 w-1 h-[20vh] bg-[#00D4FF]/40"
+          initial={{ height: 0 }}
+          whileInView={{ height: '20vh' }}
+          transition={{ duration: 1.5, delay: 3.5, ease: "easeOut" }}
+          viewport={{ once: true }}
+        />
+        <motion.div 
+          className="absolute right-0 top-0 w-1 h-[20vh] bg-[#A78BFA]/40"
+          initial={{ height: 0 }}
+          whileInView={{ height: '20vh' }}
+          transition={{ duration: 1.5, delay: 3.5, ease: "easeOut" }}
+          viewport={{ once: true }}
+        />
+      </div>
+
+      {/* The Labels */}
+      <div className="w-[80vw] max-w-[1200px] flex justify-between mt-16 text-center">
+        <motion.div 
+          className="w-1/2 pr-12"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2, delay: 4 }}
+          viewport={{ once: true }}
+        >
+          <h3 className="font-orbitron text-4xl lg:text-5xl text-[#00D4FF] tracking-widest uppercase font-bold mb-6">
+            Operational Track
+          </h3>
+          <p className="font-inter text-2xl lg:text-3xl text-[#F2F2F2]/50 font-light">
+            Infrastructure Security
+          </p>
+        </motion.div>
+
+        <motion.div 
+          className="w-1/2 pl-12"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2, delay: 4 }}
+          viewport={{ once: true }}
+        >
+          <h3 className="font-orbitron text-4xl lg:text-5xl text-[#A78BFA] tracking-widest uppercase font-bold mb-6">
+            Cognitive Track
+          </h3>
+          <p className="font-inter text-2xl lg:text-3xl text-[#F2F2F2]/50 font-light">
+            Human Perception
+          </p>
         </motion.div>
       </div>
+
+      {/* Title */}
+      <motion.div
+        className="absolute bottom-20 text-center w-full"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 2, delay: 5 }}
+        viewport={{ once: true }}
+      >
+        <h2 className="font-inter text-6xl md:text-[6rem] text-[#F2F2F2] font-light tracking-tight">
+          The Architecture Diverges.
+        </h2>
+      </motion.div>
     </section>
   );
 }

@@ -1,80 +1,75 @@
 import { motion } from 'motion/react';
-import { ExternalLink } from 'lucide-react';
 
 export function SecurityIntelligence() {
   return (
-    <section id="security-intelligence" className="relative min-h-screen flex items-center justify-center bg-[#050505] py-32 border-t border-white/5">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+    <section id="security-intelligence" className="relative min-h-[120vh] flex flex-col justify-center bg-[#050505] py-40 overflow-hidden">
+      <div className="container mx-auto px-8 sm:px-12 lg:px-24 w-full max-w-[2000px]">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-24">
           
+          {/* 1 Giant Statement (Left) */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1.2, ease: "easeOut" }}
-            viewport={{ once: true, margin: "-100px" }}
-            className="space-y-10"
+            transition={{ duration: 1.4, ease: "easeOut" }}
+            viewport={{ once: true, margin: "-200px" }}
+            className="w-full lg:w-[40%] space-y-12"
           >
-            <h2 className="font-orbitron text-4xl sm:text-5xl md:text-6xl text-[#F0F4FF] tracking-wide font-light leading-tight">
-              Defend the<br />Execution Pathway
-            </h2>
-            <p className="text-xl sm:text-2xl text-[#F0F4FF]/50 font-light max-w-xl leading-relaxed">
-              Orchestrating threat reasoning and dynamic response across interconnected infrastructure.
+            <p className="font-mono text-sm tracking-[0.3em] text-[#00D4FF] uppercase mb-8">
+              Security Intelligence
             </p>
-            <div className="flex flex-col gap-6 pt-8">
-              <a href="https://secritual-ai.onrender.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-[#5CF0FF] hover:text-white transition-colors duration-300 font-orbitron tracking-widest uppercase text-sm">
-                Explore SecRitual <ExternalLink className="w-4 h-4" />
-              </a>
-              <a href="https://cybermesh-ai.onrender.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-[#A68CFF] hover:text-white transition-colors duration-300 font-orbitron tracking-widest uppercase text-sm">
-                Explore CyberMesh <ExternalLink className="w-4 h-4" />
-              </a>
-            </div>
+            <h2 className="font-inter text-6xl sm:text-7xl md:text-[6.5rem] lg:text-[7.5rem] text-[#F2F2F2] leading-[1.05] font-light tracking-tight">
+              Defend the<br />Execution<br />Pathway
+            </h2>
           </motion.div>
 
+          {/* 1 Massive Diagram (Right) */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.5, ease: "easeOut", delay: 0.4 }}
-            viewport={{ once: true, margin: "-100px" }}
-            className="relative h-[600px] w-full bg-[#0A0A0A] border border-white/5 rounded-3xl overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.5)]"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 2, ease: "easeOut", delay: 0.4 }}
+            viewport={{ once: true, margin: "-200px" }}
+            className="relative w-full lg:w-[60%] h-[70vh] flex items-center justify-center"
           >
-            {/* Interactive Node Map Simulation */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="relative w-full h-full max-w-sm max-h-sm">
-                <motion.div 
-                  className="absolute top-1/4 left-1/4 w-32 h-32 rounded-full border border-[#5CF0FF]/30 flex items-center justify-center bg-[#5CF0FF]/5 backdrop-blur-md"
-                  animate={{ y: [0, -10, 0] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                >
-                  <span className="font-orbitron text-[#5CF0FF] tracking-widest text-xs uppercase">SecRitual</span>
-                </motion.div>
-                
-                <motion.div 
-                  className="absolute bottom-1/4 right-1/4 w-40 h-40 rounded-full border border-[#A68CFF]/30 flex items-center justify-center bg-[#A68CFF]/5 backdrop-blur-md"
-                  animate={{ y: [0, 15, 0] }}
-                  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                >
-                  <span className="font-orbitron text-[#A68CFF] tracking-widest text-xs uppercase">CyberMesh</span>
-                </motion.div>
+            <svg viewBox="0 0 800 800" fill="none" className="w-full h-full max-h-[1000px] pointer-events-none">
+              <defs>
+                <radialGradient id="cybermesh-glow" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stopColor="#00D4FF" stopOpacity="0.15"/>
+                  <stop offset="100%" stopColor="#00D4FF" stopOpacity="0"/>
+                </radialGradient>
+              </defs>
 
-                {/* Connecting Signal */}
-                <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="none">
-                  <motion.path 
-                    d="M 30 35 L 70 65" 
-                    stroke="#F0F4FF" 
-                    strokeWidth="0.5" 
-                    strokeDasharray="2 2" 
-                    strokeOpacity={0.2} 
-                    fill="none" 
-                  />
-                  <motion.circle 
-                    r="1" 
-                    fill="#F0F4FF" 
-                    animate={{ cx: ["30", "70"], cy: ["35", "65"] }}
-                    transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-                  />
-                </svg>
-              </div>
-            </div>
+              {/* Orbital Rings */}
+              <circle cx="400" cy="400" r="350" fill="url(#cybermesh-glow)"/>
+              <circle cx="400" cy="400" r="300" stroke="rgba(0,212,255,0.05)" strokeWidth="2"/>
+              <circle cx="400" cy="400" r="220" stroke="rgba(0,212,255,0.1)" strokeWidth="2" strokeDasharray="8 16"/>
+              <circle cx="400" cy="400" r="140" stroke="rgba(0,212,255,0.2)" strokeWidth="2"/>
+              
+              {/* CyberMesh Core */}
+              <circle cx="400" cy="400" r="80" stroke="rgba(0,212,255,0.4)" strokeWidth="2" fill="rgba(0,212,255,0.05)"/>
+              <motion.circle cx="400" cy="400" r="30" fill="rgba(0,212,255,0.2)" stroke="rgba(0,212,255,0.8)" strokeWidth="2"
+                animate={{ r: [25, 35, 25] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              />
+              <text x="400" y="390" textAnchor="middle" fill="#00D4FF" fontFamily="'JetBrains Mono',monospace" fontSize="16" letterSpacing="0.1em">CyberMesh</text>
+
+              {/* SecRitual Satellite */}
+              <circle cx="400" cy="180" r="50" fill="rgba(0,212,255,0.05)" stroke="rgba(0,212,255,0.4)" strokeWidth="2"/>
+              <motion.circle cx="400" cy="180" r="12" fill="rgba(0,212,255,0.8)"
+                animate={{ opacity: [1, 0.4, 1] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+              />
+              <text x="400" y="140" textAnchor="middle" fill="rgba(0,212,255,0.8)" fontFamily="'JetBrains Mono',monospace" fontSize="14" letterSpacing="0.1em">SecRitual</text>
+
+              {/* Connection */}
+              <line x1="400" y1="230" x2="400" y2="320" stroke="rgba(0,212,255,0.3)" strokeWidth="1" strokeDasharray="6 8"/>
+              <motion.circle r="4" fill="#00D4FF"
+                animate={{ cy: [230, 320], opacity: [0, 1, 0] }}
+                transition={{ duration: 2.5, repeat: Infinity, ease: "linear" }}
+              >
+                <animate attributeName="cx" values="400;400" dur="2.5s" repeatCount="indefinite" />
+              </motion.circle>
+
+            </svg>
           </motion.div>
 
         </div>
