@@ -6,24 +6,24 @@ export function EcosystemMinimap() {
     const sections = document.querySelectorAll('section');
     const nodes = document.querySelectorAll('.eco-dot');
     const names = document.querySelectorAll('.eco-name');
-    
+
     // Scroll Reveal Logic
     const srObserver = new IntersectionObserver((entries) => {
       entries.forEach(e => {
-        if(e.isIntersecting) {
+        if (e.isIntersecting) {
           e.target.classList.add('in');
         }
       });
     }, { threshold: 0.15 });
-    
+
     document.querySelectorAll('.sr').forEach(el => srObserver.observe(el));
 
     // Nav Logic
     const navObserver = new IntersectionObserver((entries) => {
       entries.forEach(e => {
-        if(e.isIntersecting) {
+        if (e.isIntersecting) {
           const activeModules = e.target.getAttribute('data-active');
-          
+
           nodes.forEach(n => {
             n.classList.remove('active', 'dim');
             if (activeModules === 'none') {
@@ -32,7 +32,7 @@ export function EcosystemMinimap() {
               // all active, no dim
             } else if (activeModules) {
               const isActive = activeModules.split(',').includes(n.id.replace('nav-', ''));
-              if(isActive) n.classList.add('active');
+              if (isActive) n.classList.add('active');
               else n.classList.add('dim');
             }
           });
@@ -57,7 +57,7 @@ export function EcosystemMinimap() {
         }
       });
     }, { threshold: 0.5 });
-    
+
     sections.forEach(s => navObserver.observe(s));
 
     return () => {
@@ -69,7 +69,7 @@ export function EcosystemMinimap() {
   return (
     <>
       <nav>
-        <div className="logo">SYSTEM_CORE // v2.4.1</div>
+        <div className="logo">TECHIE INTERNS</div>
         <div className="nav-status">
           <div className="status-dot"></div>
           TELEMETRY LIVE
@@ -78,46 +78,62 @@ export function EcosystemMinimap() {
 
       <div id="eco-nav">
         <div className="eco-header">ECOSYSTEM TRACKER</div>
-        
+
         <div className="eco-track-label sec">SECURITY TRACK</div>
         <div className="eco-node">
           <div id="nav-promptshield" className="eco-dot cyan"></div>
-          <div className="eco-name c-name">PromptShield</div>
+          <div className="eco-name c-name">
+            <a href="https://github.com/saishamehraa/PromptShield" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>PromptShield</a>
+          </div>
         </div>
         <div className="eco-node">
           <div id="nav-sift" className="eco-dot cyan"></div>
-          <div className="eco-name c-name">SIFTGuardian</div>
+          <div className="eco-name c-name">
+            <a href="https://github.com/saishamehraa/SIFTGuardian" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>SIFTGuardian</a>
+          </div>
         </div>
         <div className="eco-node">
           <div id="nav-consent" className="eco-dot violet"></div>
-          <div className="eco-name v-name">Consent Guard.</div>
+          <div className="eco-name v-name">
+            <a href="https://github.com/saishamehraa/ConsentGuardian" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>Consent Guard.</a>
+          </div>
         </div>
         <div className="eco-node">
           <div id="nav-codesage" className="eco-dot cyan"></div>
-          <div className="eco-name c-name">CodeSage</div>
+          <div className="eco-name c-name">
+            <a href="https://github.com/saishamehraa/CodeSage" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>CodeSage</a>
+          </div>
         </div>
-        
+
         <div className="eco-divider"></div>
-        
+
         <div className="eco-node">
           <div id="nav-secritual" className="eco-dot cyan"></div>
-          <div className="eco-name c-name">SecRitual</div>
+          <div className="eco-name c-name">
+            <a href="https://github.com/saishamehraa/SecRitual" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>SecRitual</a>
+          </div>
         </div>
         <div className="eco-node">
           <div id="nav-cybermesh" className="eco-dot cyan"></div>
-          <div className="eco-name c-name">CyberMesh</div>
+          <div className="eco-name c-name">
+            <a href="https://github.com/saishamehraa/CyberMesh" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>CyberMesh</a>
+          </div>
         </div>
-        
+
         <div className="eco-divider"></div>
         <div className="eco-track-label cog">COGNITIVE TRACK</div>
-        
+
         <div className="eco-node">
           <div id="nav-openmind" className="eco-dot violet"></div>
-          <div className="eco-name v-name">OpenMind Nexus</div>
+          <div className="eco-name v-name">
+            <a href="https://github.com/saishamehraa/OpenMindNexus" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>OpenMind Nexus</a>
+          </div>
         </div>
         <div className="eco-node">
           <div id="nav-neuro" className="eco-dot violet"></div>
-          <div className="eco-name v-name">NeuroAccess</div>
+          <div className="eco-name v-name">
+            <a href="https://github.com/saishamehraa/NeuroAccess" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>NeuroAccess</a>
+          </div>
         </div>
       </div>
     </>

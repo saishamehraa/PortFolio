@@ -3,7 +3,7 @@ import React from 'react';
 export function Vision() {
   return (
     <section id="vision" data-active="all" style={{ paddingRight: '220px' }}>
-      <span className="eyebrow c sr">AI Security Research Lab — Est. 2024</span>
+      <span className="eyebrow c sr">AI Security Research Lab</span>
       <h1 className="sr sr-delay-1">
         Building Trust Infrastructure for <span className="accent-c">Intelligent Systems</span>
       </h1>
@@ -19,7 +19,7 @@ export function Vision() {
         <circle cx="200" cy="300" r="52" stroke="rgba(0,212,255,0.18)" strokeWidth="1" fill="rgba(0,212,255,0.03)" />
         <circle cx="200" cy="300" r="80" stroke="rgba(0,212,255,0.08)" strokeWidth="1" strokeDasharray="4 7" />
         <circle cx="200" cy="300" r="110" stroke="rgba(0,212,255,0.04)" strokeWidth="1" />
-        <text x="200" y="296" textAnchor="middle" fill="rgba(0,212,255,0.8)" fontFamily="'JetBrains Mono',monospace" fontSize="9" letterSpacing=".08em">CyberMesh</text>
+        <a href="https://github.com/saishamehraa/CyberMesh" target="_blank" rel="noopener noreferrer"><text x="200" y="296" textAnchor="middle" fill="rgba(0,212,255,0.8)" fontFamily="'JetBrains Mono',monospace" fontSize="9" letterSpacing=".08em">CyberMesh</text></a>
         <text x="200" y="310" textAnchor="middle" fill="rgba(0,212,255,0.35)" fontFamily="'JetBrains Mono',monospace" fontSize="7">ORCHESTRATION</text>
         <circle cx="200" cy="300" r="10" fill="rgba(0,212,255,0.1)" stroke="rgba(0,212,255,0.4)" strokeWidth="1">
           <animate attributeName="r" values="9;12;9" dur="3s" repeatCount="indefinite" />
@@ -33,28 +33,28 @@ export function Vision() {
         <circle cx="200" cy="155" r="5" fill="rgba(0,232,122,0.8)">
           <animate attributeName="opacity" values="1;.4;1" dur="2.2s" repeatCount="indefinite" />
         </circle>
-        <text x="200" y="132" textAnchor="middle" fill="rgba(0,232,122,.7)" fontFamily="'JetBrains Mono',monospace" fontSize="8">PromptShield</text>
+        <a href="https://github.com/saishamehraa/PromptShield" target="_blank" rel="noopener noreferrer"><text x="200" y="132" textAnchor="middle" fill="rgba(0,232,122,.7)" fontFamily="'JetBrains Mono',monospace" fontSize="8">PromptShield</text></a>
         <circle cx="323" cy="210" r="18" fill="rgba(0,232,122,0.03)" stroke="rgba(0,232,122,0.18)" strokeWidth=".5" />
         <circle cx="323" cy="210" r="4" fill="rgba(0,232,122,0.6)">
           <animate attributeName="opacity" values=".6;.2;.6" dur="3s" repeatCount="indefinite" />
         </circle>
-        <text x="323" y="192" textAnchor="middle" fill="rgba(0,232,122,.5)" fontFamily="'JetBrains Mono',monospace" fontSize="7.5">SIFTGuardian</text>
+        <a href="https://github.com/saishamehraa/SIFTGuardian" target="_blank" rel="noopener noreferrer"><text x="323" y="192" textAnchor="middle" fill="rgba(0,232,122,.5)" fontFamily="'JetBrains Mono',monospace" fontSize="7.5">SIFTGuardian</text></a>
         <circle cx="323" cy="400" r="18" fill="rgba(0,212,255,0.03)" stroke="rgba(0,212,255,0.18)" strokeWidth=".5" />
         <circle cx="323" cy="400" r="4" fill="rgba(0,212,255,0.6)">
           <animate attributeName="opacity" values=".6;.2;.6" dur="2.6s" repeatCount="indefinite" />
         </circle>
-        <text x="323" y="382" textAnchor="middle" fill="rgba(0,212,255,.5)" fontFamily="'JetBrains Mono',monospace" fontSize="7.5">CodeSage</text>
+        <a href="https://github.com/saishamehraa/CodeSage" target="_blank" rel="noopener noreferrer"><text x="323" y="382" textAnchor="middle" fill="rgba(0,212,255,.5)" fontFamily="'JetBrains Mono',monospace" fontSize="7.5">CodeSage</text></a>
         <circle cx="77" cy="400" r="18" fill="rgba(167,139,250,0.03)" stroke="rgba(167,139,250,0.18)" strokeWidth=".5" />
         <circle cx="77" cy="400" r="4" fill="rgba(167,139,250,0.6)">
           <animate attributeName="opacity" values=".6;.2;.6" dur="3.5s" repeatCount="indefinite" />
         </circle>
-        <text x="77" y="382" textAnchor="middle" fill="rgba(167,139,250,.5)" fontFamily="'JetBrains Mono',monospace" fontSize="7.5">Consent Guard.</text>
+        <a href="https://github.com/saishamehraa/ConsentGuardian" target="_blank" rel="noopener noreferrer"><text x="77" y="382" textAnchor="middle" fill="rgba(167,139,250,.5)" fontFamily="'JetBrains Mono',monospace" fontSize="7.5">Consent Guard.</text></a>
         <circle cx="77" cy="210" r="18" fill="rgba(0,212,255,0.03)" stroke="rgba(0,212,255,0.15)" strokeWidth=".5" />
         <circle cx="77" cy="210" r="4" fill="rgba(0,212,255,0.45)">
           <animate attributeName="opacity" values=".4;.1;.4" dur="4s" repeatCount="indefinite" />
         </circle>
-        <text x="77" y="192" textAnchor="middle" fill="rgba(0,212,255,.4)" fontFamily="'JetBrains Mono',monospace" fontSize="7.5">SecRitual</text>
-        
+        <a href="https://github.com/saishamehraa/SecRitual" target="_blank" rel="noopener noreferrer"><text x="77" y="192" textAnchor="middle" fill="rgba(0,212,255,.4)" fontFamily="'JetBrains Mono',monospace" fontSize="7.5">SecRitual</text></a>
+
         <circle r="3" fill="#00D4FF">
           <animateMotion dur="2.8s" repeatCount="indefinite" path="M200,248 L200,177" />
           <animate attributeName="opacity" values="0;.9;0" dur="2.8s" repeatCount="indefinite" />

@@ -18,8 +18,9 @@ export function CognitiveIntelligence() {
             <svg style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }} viewBox="0 0 88 88">
               <circle cx="44" cy="44" r="38" stroke="rgba(167,139,250,.2)" strokeWidth="1" strokeDasharray="2 4" fill="none" />
             </svg>
+          <div className="cog-label">
+            <a href="https://github.com/saishamehraa/OpenMindNexus" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>OpenMind Nexus</a>
           </div>
-          <div className="cog-label">OpenMind Nexus</div>
           <div className="cog-desc">Information Integrity & Trust Formation</div>
         </div>
         <div className="cog-node">
@@ -30,8 +31,9 @@ export function CognitiveIntelligence() {
             <svg style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }} viewBox="0 0 88 88">
               <circle cx="44" cy="44" r="38" stroke="rgba(167,139,250,.2)" strokeWidth="1" strokeDasharray="2 4" fill="none" />
             </svg>
+          <div className="cog-label">
+            <a href="https://github.com/saishamehraa/NeuroAccess" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>NeuroAccess</a>
           </div>
-          <div className="cog-label">NeuroAccess</div>
           <div className="cog-desc">Cognitive Security & Human Perception</div>
         </div>
       </div>

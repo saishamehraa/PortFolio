@@ -9,7 +9,12 @@ export function OrchestrationFlow() {
         <div className="flow-box">
           <div className="flow-label">LAYER 01</div>
           <div className="flow-title">Modules</div>
-          <div className="flow-nodes">PromptShield<br />SIFTGuardian<br />Consent Guardian<br />CodeSage</div>
+          <div className="flow-nodes">
+            <a href="https://github.com/saishamehraa/PromptShield" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>PromptShield</a><br />
+            <a href="https://github.com/saishamehraa/SIFTGuardian" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>SIFTGuardian</a><br />
+            <a href="https://github.com/saishamehraa/ConsentGuardian" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>Consent Guardian</a><br />
+            <a href="https://github.com/saishamehraa/CodeSage" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>CodeSage</a>
+          </div>
         </div>
         <div className="flow-connector">
           <div className="flow-line">
@@ -22,7 +27,9 @@ export function OrchestrationFlow() {
         <div className="flow-box" style={{ borderColor: 'rgba(0,212,255,0.2)' }}>
           <div className="flow-label">LAYER 02</div>
           <div className="flow-title">Reasoning</div>
-          <div className="flow-nodes">SecRitual</div>
+          <div className="flow-nodes">
+            <a href="https://github.com/saishamehraa/SecRitual" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>SecRitual</a>
+          </div>
         </div>
         <div className="flow-connector">
           <div className="flow-line">
@@ -35,7 +42,9 @@ export function OrchestrationFlow() {
         <div className="flow-box" style={{ borderColor: 'rgba(0,212,255,0.35)' }}>
           <div className="flow-label">LAYER 03</div>
           <div className="flow-title">Orchestration</div>
-          <div className="flow-nodes">CyberMesh</div>
+          <div className="flow-nodes">
+            <a href="https://github.com/saishamehraa/CyberMesh" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>CyberMesh</a>
+          </div>
         </div>
       </div>
     </section>

@@ -11,8 +11,8 @@ export function FutureVision() {
             Security is not a feature. It is an architecture. We are building the foundational modules for a future where machine intelligence operates transparently, safely, and entirely within the boundaries of human trust.
           </p>
           <div className="btns">
-            <a href="mailto:contact@lab.com" className="btn-p">Partner with Lab</a>
-            <a href="#" className="btn-o">Read Research ↗</a>
+            <a href="mailto:techieiinterns@gmail.com" className="btn-p">Partner with Us</a>
+            <a href="https://discordapp.com/users/932714385196060683" className="btn-o"> Meet The Researcher ↗</a>
           </div>
         </div>
         <div className="sr sr-delay-2" style={{ width: '100%', height: '100%', position: 'relative' }}>
@@ -43,8 +43,8 @@ export function FutureVision() {
         </div>
       </section>
       <footer>
-        <div className="footer-mono">© 2024 AI Security Research Lab.</div>
-        <div className="footer-mono" style={{ color: 'rgba(0,212,255,.5)' }}>SYSTEM_STATUS: NOMINAL</div>
+        <div className="footer-mono">© AI Security Research Lab.</div>
+        <div className="footer-mono" style={{ color: 'rgba(0,212,255,.5)' }}>ALWAYS OPEN</div>
       </footer>
     </>
   );
