@@ -11,7 +11,7 @@ export function HowTrustIsBuilt() {
           <div className="process-body">
             <div className="process-system">PromptShield</div>
             <div className="process-headline">Every decision begins with trust.</div>
-            <div className="process-desc">Prompt interactions are validated before reasoning begins. Intent is verified before execution is permitted.</div>
+            <div className="process-desc">Every intelligent decision begins with trusted input.</div>
           </div>
           <div className="process-node-dot"></div>
         </div>
@@ -20,7 +20,7 @@ export function HowTrustIsBuilt() {
           <div className="process-body">
             <div className="process-system">SIFTGuardian</div>
             <div className="process-headline">Signals become intelligence.</div>
-            <div className="process-desc">Threat context is correlated across sources. Raw data becomes structured, actionable threat intelligence.</div>
+            <div className="process-desc">Signals become intelligence when context is verified.</div>
           </div>
           <div className="process-node-dot" style={{ background: 'var(--emerald)' }}></div>
         </div>
@@ -29,7 +29,7 @@ export function HowTrustIsBuilt() {
           <div className="process-body">
             <div className="process-system" style={{ color: 'var(--violet)' }}>Consent Guardian</div>
             <div className="process-headline">Boundaries become enforceable.</div>
-            <div className="process-desc">Trust constraints are applied before execution. What a system can do is bounded by what it has been permitted to do.</div>
+            <div className="process-desc">Trust becomes enforceable when boundaries are explicit.</div>
           </div>
           <div className="process-node-dot" style={{ background: 'var(--violet)' }}></div>
         </div>
@@ -38,7 +38,7 @@ export function HowTrustIsBuilt() {
           <div className="process-body">
             <div className="process-system">CodeSage</div>
             <div className="process-headline">Logic becomes explainable.</div>
-            <div className="process-desc">Code paths are analyzed and reasoned about transparently. Every action has a traceable justification.</div>
+            <div className="process-desc">Reasoning is valuable only when execution is explainable.</div>
           </div>
           <div className="process-node-dot"></div>
         </div>

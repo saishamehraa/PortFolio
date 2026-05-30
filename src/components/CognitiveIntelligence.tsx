@@ -19,8 +19,8 @@ export function CognitiveIntelligence() {
               <circle cx="44" cy="44" r="38" stroke="rgba(167,139,250,.2)" strokeWidth="1" strokeDasharray="2 4" fill="none" />
             </svg>
           </div>
-          <div className="cog-label">OpenMind</div>
-          <div className="cog-desc">Transparency in reasoning structures and model decision weighting.</div>
+          <div className="cog-label">OpenMind Nexus</div>
+          <div className="cog-desc">Information Integrity & Trust Formation</div>
         </div>
         <div className="cog-node">
           <div className="cog-orb">
@@ -32,7 +32,7 @@ export function CognitiveIntelligence() {
             </svg>
           </div>
           <div className="cog-label">NeuroAccess</div>
-          <div className="cog-desc">Brain-computer interface security protocols and neural privacy.</div>
+          <div className="cog-desc">Cognitive Security & Human Perception</div>
         </div>
       </div>
     </section>

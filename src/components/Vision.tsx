@@ -5,7 +5,7 @@ export function Vision() {
     <section id="vision" data-active="all" style={{ paddingRight: '220px' }}>
       <span className="eyebrow c sr">AI Security Research Lab — Est. 2024</span>
       <h1 className="sr sr-delay-1">
-        Building AI-Powered Systems for <span className="accent-c">Security, Trust</span> &amp; Cognitive Transparency
+        Building Trust Infrastructure for <span className="accent-c">Intelligent Systems</span>
       </h1>
       <p className="body-text sr sr-delay-2">
         An operational ecosystem of interconnected intelligence modules — each one a live node in a larger architecture securing the execution pathway from prompt to action.

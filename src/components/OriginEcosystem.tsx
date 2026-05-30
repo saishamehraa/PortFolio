@@ -10,29 +10,36 @@ export function OriginEcosystem() {
         <div className="origin-step">
           <div className="origin-year">PHASE 1</div>
           <div className="origin-text">
-            <div className="origin-title">The Input Problem</div>
-            <div className="origin-sub">The system began by solving prompt injection and jailbreaks. PromptShield was developed to validate intent before an LLM could parse a command.</div>
+            <div className="origin-title">Cybersecurity Curiosity</div>
+            <div className="origin-sub">The foundation was built on understanding how complex systems fail under adversarial pressure and how defenses must evolve.</div>
           </div>
         </div>
         <div className="origin-step">
           <div className="origin-year">PHASE 2</div>
           <div className="origin-text">
-            <div className="origin-title">Context &amp; Constraints</div>
-            <div className="origin-sub">Validating input wasn't enough. We needed threat intelligence (SIFTGuardian) and execution boundaries (Consent Guardian) to ensure the AI couldn't be tricked by external data or overstep permissions.</div>
+            <div className="origin-title">AI Reasoning</div>
+            <div className="origin-sub">As intelligent models grew, the focus shifted to understanding their decision-making processes and execution pathways.</div>
+          </div>
+        </div>
+        <div className="origin-step">
+          <div className="origin-year">PHASE 3</div>
+          <div className="origin-text">
+            <div className="origin-title">Trust Problems</div>
+            <div className="origin-sub">It became clear that AI didn't just lack capability—it lacked enforceable boundaries and verifiable intent.</div>
           </div>
         </div>
         <div className="origin-step active-step">
-          <div className="origin-year">PHASE 3</div>
+          <div className="origin-year">PHASE 4</div>
           <div className="origin-text">
-            <div className="origin-title">Orchestrating Trust</div>
-            <div className="origin-sub">As the modules grew, they needed a central nervous system. SecRitual handled local reasoning, while CyberMesh was built to orchestrate the entire flow of trust across the network.</div>
+            <div className="origin-title">Multi-Agent Systems</div>
+            <div className="origin-sub">To solve the trust gap, we developed orchestrated ecosystems where autonomous agents could cross-validate and secure each other.</div>
           </div>
         </div>
         <div className="origin-step" style={{ borderLeftColor: 'transparent' }}>
-          <div className="origin-year">PHASE 4</div>
+          <div className="origin-year">PHASE 5</div>
           <div className="origin-text">
-            <div className="origin-title">The Cognitive Frontier</div>
-            <div className="origin-sub">With execution pathways secured, research expanded outward. How do models reason? (OpenMind). How does AI interact with human neural pathways safely? (NeuroAccess).</div>
+            <div className="origin-title">Cognitive Intelligence</div>
+            <div className="origin-sub">The final frontier extends beyond security—exploring how intelligence safely interacts with human perception and intent.</div>
           </div>
         </div>
       </div>

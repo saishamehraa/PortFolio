@@ -113,7 +113,7 @@ export function EcosystemMinimap() {
         
         <div className="eco-node">
           <div id="nav-openmind" className="eco-dot violet"></div>
-          <div className="eco-name v-name">OpenMind</div>
+          <div className="eco-name v-name">OpenMind Nexus</div>
         </div>
         <div className="eco-node">
           <div id="nav-neuro" className="eco-dot violet"></div>
