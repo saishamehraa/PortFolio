@@ -20,7 +20,7 @@ export function CognitiveIntelligence() {
             </svg>
           </div>
           <div className="cog-label">
-            <a href="https://github.com/saishamehraa/OpenMindNexus" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>OpenMind Nexus</a>
+            <a href="https://github.com/saishamehraa/OpenMind-Nexus" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>OpenMind Nexus</a>
           </div>
           <div className="cog-desc">Information Integrity & Trust Formation</div>
         </div>

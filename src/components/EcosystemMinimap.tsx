@@ -126,7 +126,7 @@ export function EcosystemMinimap() {
         <div className="eco-node">
           <div id="nav-openmind" className="eco-dot violet"></div>
           <div className="eco-name v-name">
-            <a href="https://github.com/saishamehraa/OpenMindNexus" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>OpenMind Nexus</a>
+            <a href="https://github.com/saishamehraa/OpenMind-Nexus" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>OpenMind Nexus</a>
           </div>
         </div>
         <div className="eco-node">
