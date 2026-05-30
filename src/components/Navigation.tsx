@@ -8,9 +8,9 @@ export function Navigation() {
   const navItems = [
     { name: 'Home', href: '#home' },
     { name: 'About', href: '#about' },
-    { name: 'Focus', href: '#focus' },
-    { name: 'Ecosystem', href: '#ecosystem' },
-    { name: 'Projects', href: '#projects' },
+    { name: 'Research', href: '#research' },
+    { name: 'Architecture', href: '#architecture' },
+    { name: 'Systems', href: '#projects' },
     { name: 'Stack', href: '#stack' },
     { name: 'Contact', href: '#contact' },
   ];

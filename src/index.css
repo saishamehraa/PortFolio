@@ -355,8 +355,8 @@
   }
 
   body {
-    background-color: oklch(1 0 0);
-    color: oklch(.145 0 0);
+    background-color: #050505;
+    color: #F0F4FF;
   }
 
   :root {
@@ -387,8 +387,8 @@
   }
 
   body {
-    background-color: oklch(1 0 0);
-    color: oklch(.145 0 0);
+    background-color: #050505;
+    color: #F0F4FF;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-family: Inter, sans-serif;
