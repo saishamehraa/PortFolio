@@ -18,6 +18,7 @@ export function CognitiveIntelligence() {
             <svg style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }} viewBox="0 0 88 88">
               <circle cx="44" cy="44" r="38" stroke="rgba(167,139,250,.2)" strokeWidth="1" strokeDasharray="2 4" fill="none" />
             </svg>
+          </div>
           <div className="cog-label">
             <a href="https://github.com/saishamehraa/OpenMindNexus" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>OpenMind Nexus</a>
           </div>
@@ -31,6 +32,7 @@ export function CognitiveIntelligence() {
             <svg style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }} viewBox="0 0 88 88">
               <circle cx="44" cy="44" r="38" stroke="rgba(167,139,250,.2)" strokeWidth="1" strokeDasharray="2 4" fill="none" />
             </svg>
+          </div>
           <div className="cog-label">
             <a href="https://github.com/saishamehraa/NeuroAccess" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>NeuroAccess</a>
           </div>
