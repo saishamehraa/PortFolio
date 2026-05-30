@@ -1,13 +1,12 @@
-import { useState } from 'react';
 import { Navigation } from './components/Navigation';
 import { Hero } from './components/Hero';
 import { Mission } from './components/Mission';
-import { About } from './components/About';
-import { ResearchInterests } from './components/ResearchInterests';
+import { Problem } from './components/Problem';
 import { SystemsArchitecture } from './components/SystemsArchitecture';
-import { Projects } from './components/Projects';
-import { Metrics } from './components/Metrics';
-import { TechStack } from './components/TechStack';
+import { FeaturedSystems } from './components/FeaturedSystems';
+import { OpenMind } from './components/OpenMind';
+import { SupportingModules } from './components/SupportingModules';
+import { ResearchInterests } from './components/ResearchInterests';
 import { ExperienceTimeline } from './components/ExperienceTimeline';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
@@ -21,15 +20,15 @@ export default function App() {
       
       <div className="relative z-10">
         <Navigation />
-      <Hero />
-      <Mission />
-      <About />
-      <ResearchInterests />
-      <SystemsArchitecture />
-      <Projects />
-      <Metrics />
-      <TechStack />
-      <ExperienceTimeline />
+        <Hero />
+        <Mission />
+        <Problem />
+        <SystemsArchitecture />
+        <FeaturedSystems />
+        <OpenMind />
+        <SupportingModules />
+        <ResearchInterests />
+        <ExperienceTimeline />
         <Contact />
         <Footer />
       </div>
