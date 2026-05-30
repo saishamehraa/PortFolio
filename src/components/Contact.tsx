@@ -5,7 +5,7 @@ export function Contact() {
   const socials = [
     { name: 'GitHub', icon: <Github className="w-5 h-5" />, href: 'https://github.com/saishamehraa' },
     { name: 'LinkedIn', icon: <Linkedin className="w-5 h-5" />, href: '#' },
-    { name: 'Email', icon: <Mail className="w-5 h-5" />, href: 'mailto:saishamehra@example.com' },
+    { name: 'Email', icon: <Mail className="w-5 h-5" />, href: 'mailto:techieiinterns@gmail.com' },
   ];
 
   return (

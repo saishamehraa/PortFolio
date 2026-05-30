@@ -12,7 +12,7 @@ export function Vision() {
       </p>
       <div className="btns sr sr-delay-3">
         <a href="#trust" className="btn-p">Explore Ecosystem</a>
-        <a href="#" className="btn-o">View GitHub ↗</a>
+        <a href="https://github.com/saishamehraa" className="btn-o">View GitHub ↗</a>
       </div>
 
       <svg style={{ position: 'absolute', right: '240px', top: '0', bottom: '0', width: '40%', height: '100%', opacity: 0.7 }} viewBox="0 0 400 600" fill="none" xmlns="http://www.w3.org/2000/svg">
