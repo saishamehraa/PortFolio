@@ -95,7 +95,7 @@ export function EcosystemMinimap() {
         <div className="eco-node">
           <div id="nav-consent" className="eco-dot violet"></div>
           <div className="eco-name v-name">
-            <a href="https://github.com/saishamehraa/ConsentGuardian" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>Consent Guard.</a>
+            <a href="https://github.com/saishamehraa/ConsentGuardian-AI" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>Consent Guard.</a>
           </div>
         </div>
         <div className="eco-node">

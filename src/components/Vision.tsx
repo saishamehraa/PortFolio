@@ -48,7 +48,7 @@ export function Vision() {
         <circle cx="77" cy="400" r="4" fill="rgba(167,139,250,0.6)">
           <animate attributeName="opacity" values=".6;.2;.6" dur="3.5s" repeatCount="indefinite" />
         </circle>
-        <a href="https://github.com/saishamehraa/ConsentGuardian" target="_blank" rel="noopener noreferrer"><text x="77" y="382" textAnchor="middle" fill="rgba(167,139,250,.5)" fontFamily="'JetBrains Mono',monospace" fontSize="7.5">Consent Guard.</text></a>
+        <a href="https://github.com/saishamehraa/ConsentGuardian-AI" target="_blank" rel="noopener noreferrer"><text x="77" y="382" textAnchor="middle" fill="rgba(167,139,250,.5)" fontFamily="'JetBrains Mono',monospace" fontSize="7.5">Consent Guard.</text></a>
         <circle cx="77" cy="210" r="18" fill="rgba(0,212,255,0.03)" stroke="rgba(0,212,255,0.15)" strokeWidth=".5" />
         <circle cx="77" cy="210" r="4" fill="rgba(0,212,255,0.45)">
           <animate attributeName="opacity" values=".4;.1;.4" dur="4s" repeatCount="indefinite" />

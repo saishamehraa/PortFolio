@@ -42,7 +42,7 @@ export function SecurityIntelligence() {
           <circle cx="91" cy="255" r="4" fill="rgba(167,139,250,.5)">
             <animate attributeName="opacity" values=".5;.12;.5" dur="2.5s" repeatCount="indefinite" />
           </circle>
-          <a href="https://github.com/saishamehraa/ConsentGuardian" target="_blank" rel="noopener noreferrer"><text x="91" y="275" textAnchor="middle" fill="rgba(167,139,250,.4)" fontFamily="'JetBrains Mono',monospace" fontSize="7">Consent Guard.</text></a>
+          <a href="https://github.com/saishamehraa/ConsentGuardian-AI" target="_blank" rel="noopener noreferrer"><text x="91" y="275" textAnchor="middle" fill="rgba(167,139,250,.4)" fontFamily="'JetBrains Mono',monospace" fontSize="7">Consent Guard.</text></a>
           <circle cx="91" cy="140" r="16" fill="rgba(0,212,255,0.03)" stroke="rgba(0,212,255,0.15)" strokeWidth=".5" />
           <circle cx="91" cy="140" r="4" fill="rgba(0,212,255,.45)">
             <animate attributeName="opacity" values=".45;.1;.45" dur="3.8s" repeatCount="indefinite" />

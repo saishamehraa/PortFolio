@@ -32,7 +32,7 @@ export function HowTrustIsBuilt() {
           <div className="process-index">03</div>
           <div className="process-body">
             <div className="process-system" style={{ color: 'var(--violet)' }}>
-              <a href="https://github.com/saishamehraa/ConsentGuardian" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>Consent Guardian</a>
+              <a href="https://github.com/saishamehraa/ConsentGuardian-AI" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>Consent Guardian</a>
             </div>
             <div className="process-headline">Boundaries become enforceable.</div>
             <div className="process-desc">Trust becomes enforceable when boundaries are explicit.</div>
