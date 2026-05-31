@@ -2,7 +2,7 @@ import React from 'react';
 
 export function CognitiveIntelligence() {
   return (
-    <section id="cognitive" className="centered" data-active="openmind,neuro" style={{ paddingRight: '220px' }}>
+    <section id="cognitive" className="centered pr-desktop" data-active="openmind,neuro">
       <span className="eyebrow v sr">Human Layer / Research Track</span>
       <h2 className="sr sr-delay-1" style={{ maxWidth: '780px' }}>Mapping the<br />Cognitive Boundary</h2>
       <p className="body-text centered sr sr-delay-2" style={{ maxWidth: '640px' }}>

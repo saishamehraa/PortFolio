@@ -1,6 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 export function EcosystemMinimap() {
+  const [isExpanded, setIsExpanded] = useState(false);
+
   useEffect(() => {
     // Porting the IntersectionObserver logic from reference.html
     const sections = document.querySelectorAll('section');
@@ -76,7 +78,7 @@ export function EcosystemMinimap() {
         </div>
       </nav>
 
-      <div id="eco-nav">
+      <div id="eco-nav" className={isExpanded ? 'eco-expanded' : ''} onClick={() => setIsExpanded(!isExpanded)}>
         <div className="eco-header">ECOSYSTEM TRACKER</div>
 
         <div className="eco-track-label sec">SECURITY TRACK</div>
