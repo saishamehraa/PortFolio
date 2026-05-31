@@ -12,7 +12,7 @@ export function FutureVision() {
           </p>
           <div className="btns">
             <a href="mailto:techieiinterns@gmail.com" className="btn-p">Partner with Us</a>
-            <a href="https://discordapp.com/users/932714385196060683" className="btn-o"> Meet The Researcher ↗</a>
+            <a href="/Resume.pdf" className="btn-o" target="_blank" rel="noopener noreferrer"> View Resume ↗</a>
           </div>
         </div>
         <div className="sr sr-delay-2" style={{ width: '100%', height: '100%', position: 'relative' }}>
