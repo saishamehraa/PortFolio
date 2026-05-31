@@ -2,7 +2,7 @@ import React from 'react';
 
 export function Vision() {
   return (
-    <section id="vision" className="pr-desktop" data-active="all">
+    <section id="vision" data-active="all" className="eco-section">
       <span className="eyebrow c sr">AI Security Research Lab</span>
       <h1 className="sr sr-delay-1">
         Building Trust Infrastructure for <span className="accent-c">Intelligent Systems</span>
@@ -15,7 +15,7 @@ export function Vision() {
         <a href="https://github.com/saishamehraa" className="btn-o">View GitHub ↗</a>
       </div>
 
-      <svg className="hero-svg" viewBox="0 0 400 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg className="hero-svg" style={{ position: 'absolute', right: '240px', top: '0', bottom: '0', width: '40%', height: '100%', opacity: 0.7 }} viewBox="0 0 400 600" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle cx="200" cy="300" r="52" stroke="rgba(0,212,255,0.18)" strokeWidth="1" fill="rgba(0,212,255,0.03)" />
         <circle cx="200" cy="300" r="80" stroke="rgba(0,212,255,0.08)" strokeWidth="1" strokeDasharray="4 7" />
         <circle cx="200" cy="300" r="110" stroke="rgba(0,212,255,0.04)" strokeWidth="1" />

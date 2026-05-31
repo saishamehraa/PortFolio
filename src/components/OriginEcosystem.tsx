@@ -2,7 +2,7 @@ import React from 'react';
 
 export function OriginEcosystem() {
   return (
-    <section id="origin" className="pr-desktop" data-active="none" style={{ background: '#050505', paddingTop: '100px' }}>
+    <section id="origin" data-active="all" className="eco-section" style={{ background: '#050505', paddingTop: '100px' }}>
       <span className="eyebrow sr">From Security to Intelligence</span>
       <h2 className="sr sr-delay-1" style={{ maxWidth: '640px' }}>How the Ecosystem<br />Evolved</h2>
       

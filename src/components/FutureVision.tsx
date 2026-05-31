@@ -3,7 +3,7 @@ import React from 'react';
 export function FutureVision() {
   return (
     <>
-      <section id="future" className="pr-desktop" data-active="all" style={{ paddingBottom: '120px' }}>
+      <section id="future" data-active="all" className="eco-section" style={{ paddingBottom: '120px' }}>
         <div className="sr">
           <span className="eyebrow c">The Horizon</span>
           <h2>The Ecosystem<br />is <span className="accent-c">Expanding.</span></h2>

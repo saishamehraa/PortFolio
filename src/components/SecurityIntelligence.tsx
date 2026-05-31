@@ -2,7 +2,7 @@ import React from 'react';
 
 export function SecurityIntelligence() {
   return (
-    <section id="security" className="pr-desktop" data-active="secritual,cybermesh">
+    <section id="security" data-active="secritual,cybermesh" className="eco-section">
       <div className="security-split">
         <div className="sr">
           <span className="eyebrow c">Security Intelligence</span>

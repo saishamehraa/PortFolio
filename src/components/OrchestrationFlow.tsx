@@ -2,7 +2,7 @@ import React from 'react';
 
 export function OrchestrationFlow() {
   return (
-    <section id="flow" className="centered pr-desktop" data-active="secritual,cybermesh" style={{ background: 'linear-gradient(180deg,#050505,#060b0e)' }}>
+    <section id="flow" className="centered eco-section" data-active="secritual,cybermesh" style={{ background: 'linear-gradient(180deg,#050505,#060b0e)' }}>
       <span className="eyebrow c sr">Orchestration</span>
       <h2 className="sr sr-delay-1">How Systems<br />Work Together</h2>
       <div className="flow-wrap sr sr-delay-2">

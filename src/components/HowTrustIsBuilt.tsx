@@ -2,7 +2,7 @@ import React from 'react';
 
 export function HowTrustIsBuilt() {
   return (
-    <section id="process" className="pr-desktop" data-active="promptshield,sift,consent,codesage" style={{ paddingTop: '120px', paddingBottom: '120px' }}>
+    <section id="process" data-active="promptshield,sift,consent,codesage" className="eco-section" style={{ paddingTop: '120px', paddingBottom: '120px' }}>
       <span className="eyebrow c sr">Architecture — Trust Layer</span>
       <h2 className="sr sr-delay-1" style={{ maxWidth: '560px' }}>How Trust<br />Is Built</h2>
       <div style={{ marginTop: '60px', width: '100%' }}>

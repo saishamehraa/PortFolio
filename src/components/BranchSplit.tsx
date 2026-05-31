@@ -2,7 +2,7 @@ import React from 'react';
 
 export function BranchSplit() {
   return (
-    <section id="branch" className="centered pr-desktop" data-active="none">
+    <section id="branch" className="centered eco-section" data-active="all">
       <span className="eyebrow c sr">Architecture Evolution</span>
       <h2 className="sr sr-delay-1">Two Pathways,<br />One Foundation</h2>
       <p className="body-text centered sr sr-delay-2" style={{ maxWidth: '640px' }}>

@@ -78,7 +78,7 @@ export function EcosystemMinimap() {
         </div>
       </nav>
 
-      <div id="eco-nav" className={isExpanded ? 'eco-expanded' : ''} onClick={() => setIsExpanded(!isExpanded)}>
+      <div id="eco-nav" className={`sr sr-delay-3 ${isExpanded ? 'expanded' : ''}`} onClick={() => setIsExpanded(!isExpanded)}>
         <div className="eco-header">ECOSYSTEM TRACKER</div>
 
         <div className="eco-track-label sec">SECURITY TRACK</div>
