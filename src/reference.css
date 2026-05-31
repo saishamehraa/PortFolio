@@ -219,36 +219,28 @@ footer { padding: 40px 80px; border-top: 1px solid var(--border); display: flex;
     z-index: -1;
   }
   
-  /* Eco Nav Mobile - Floating Corner Map */
+  /* Eco Nav Mobile - Toggled from Top Nav */
   #eco-nav {
-    top: auto;
-    bottom: 24px;
-    right: 24px;
-    transform: scale(0.65);
-    transform-origin: bottom right;
+    display: none;
+    top: 64px;
+    bottom: auto;
+    right: 16px;
+    transform: none;
     width: auto;
-    background: rgba(5,5,5,0.7);
-    padding: 12px;
+    background: rgba(5,5,5,0.95);
+    padding: 16px;
     backdrop-filter: blur(16px);
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     z-index: 9999;
   }
   
-  #eco-nav:not(.expanded) .eco-name,
-  #eco-nav:not(.expanded) .eco-track-label,
-  #eco-nav:not(.expanded) .eco-header {
-    display: none;
+  #eco-nav.mobile-visible {
+    display: flex;
   }
   
-  #eco-nav.expanded {
-    transform: scale(0.9);
-    background: rgba(5,5,5,0.95);
-  }
-  
-  #eco-nav.expanded .eco-name,
-  #eco-nav.expanded .eco-track-label,
-  #eco-nav.expanded .eco-header {
-    display: block;
+  #eco-nav .eco-name,
+  #eco-nav .eco-track-label,
+  #eco-nav .eco-header {
+    display: block !important;
   }
   
   /* Process / Flow / Origin */

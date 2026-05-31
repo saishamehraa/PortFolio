@@ -72,35 +72,35 @@ export function EcosystemMinimap() {
     <>
       <nav>
         <div className="logo">TECHIE INTERNS</div>
-        <div className="nav-status">
+        <div className="nav-status" onClick={() => setIsExpanded(!isExpanded)} style={{ cursor: 'pointer' }}>
           <div className="status-dot"></div>
           TELEMETRY LIVE
         </div>
       </nav>
 
-      <div id="eco-nav" className={`sr sr-delay-3 ${isExpanded ? 'expanded' : ''}`} onClick={() => setIsExpanded(!isExpanded)}>
+      <div id="eco-nav" className={`sr sr-delay-3 ${isExpanded ? 'mobile-visible' : ''}`}>
         <div className="eco-header">ECOSYSTEM TRACKER</div>
 
         <div className="eco-track-label sec">SECURITY TRACK</div>
-        <div className="eco-node">
+        <div className="eco-node" onClick={(e) => { if ((e.target as HTMLElement).tagName !== 'A') document.getElementById('process')?.scrollIntoView({ behavior: 'smooth' }); }}>
           <div id="nav-promptshield" className="eco-dot cyan"></div>
           <div className="eco-name c-name">
             <a href="https://github.com/saishamehraa/PromptShield" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>PromptShield</a>
           </div>
         </div>
-        <div className="eco-node">
+        <div className="eco-node" onClick={(e) => { if ((e.target as HTMLElement).tagName !== 'A') document.getElementById('process')?.scrollIntoView({ behavior: 'smooth' }); }}>
           <div id="nav-sift" className="eco-dot cyan"></div>
           <div className="eco-name c-name">
             <a href="https://github.com/saishamehraa/SIFTGuardian" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>SIFTGuardian</a>
           </div>
         </div>
-        <div className="eco-node">
+        <div className="eco-node" onClick={(e) => { if ((e.target as HTMLElement).tagName !== 'A') document.getElementById('process')?.scrollIntoView({ behavior: 'smooth' }); }}>
           <div id="nav-consent" className="eco-dot violet"></div>
           <div className="eco-name v-name">
             <a href="https://github.com/saishamehraa/ConsentGuardian-AI" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>Consent Guard.</a>
           </div>
         </div>
-        <div className="eco-node">
+        <div className="eco-node" onClick={(e) => { if ((e.target as HTMLElement).tagName !== 'A') document.getElementById('process')?.scrollIntoView({ behavior: 'smooth' }); }}>
           <div id="nav-codesage" className="eco-dot cyan"></div>
           <div className="eco-name c-name">
             <a href="https://github.com/saishamehraa/CodeSage" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>CodeSage</a>
@@ -109,13 +109,13 @@ export function EcosystemMinimap() {
 
         <div className="eco-divider"></div>
 
-        <div className="eco-node">
+        <div className="eco-node" onClick={(e) => { if ((e.target as HTMLElement).tagName !== 'A') document.getElementById('security')?.scrollIntoView({ behavior: 'smooth' }); }}>
           <div id="nav-secritual" className="eco-dot cyan"></div>
           <div className="eco-name c-name">
             <a href="https://github.com/saishamehraa/SecRitual" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>SecRitual</a>
           </div>
         </div>
-        <div className="eco-node">
+        <div className="eco-node" onClick={(e) => { if ((e.target as HTMLElement).tagName !== 'A') document.getElementById('security')?.scrollIntoView({ behavior: 'smooth' }); }}>
           <div id="nav-cybermesh" className="eco-dot cyan"></div>
           <div className="eco-name c-name">
             <a href="https://github.com/saishamehraa/CyberMesh" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>CyberMesh</a>
@@ -125,13 +125,13 @@ export function EcosystemMinimap() {
         <div className="eco-divider"></div>
         <div className="eco-track-label cog">COGNITIVE TRACK</div>
 
-        <div className="eco-node">
+        <div className="eco-node" onClick={(e) => { if ((e.target as HTMLElement).tagName !== 'A') document.getElementById('cognitive')?.scrollIntoView({ behavior: 'smooth' }); }}>
           <div id="nav-openmind" className="eco-dot violet"></div>
           <div className="eco-name v-name">
             <a href="https://github.com/saishamehraa/OpenMind-Nexus" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>OpenMind Nexus</a>
           </div>
         </div>
-        <div className="eco-node">
+        <div className="eco-node" onClick={(e) => { if ((e.target as HTMLElement).tagName !== 'A') document.getElementById('cognitive')?.scrollIntoView({ behavior: 'smooth' }); }}>
           <div id="nav-neuro" className="eco-dot violet"></div>
           <div className="eco-name v-name">
             <a href="https://github.com/saishamehraa/NeuroAccess" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>NeuroAccess</a>
