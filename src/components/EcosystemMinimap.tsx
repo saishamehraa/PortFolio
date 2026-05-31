@@ -1,7 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 export function EcosystemMinimap() {
-  const [isExpanded, setIsExpanded] = useState(false);
+  const ecoNavRef = useRef<HTMLDivElement>(null);
+
+  const toggleMobileNav = () => {
+    if (ecoNavRef.current) {
+      ecoNavRef.current.classList.toggle('mobile-visible');
+    }
+  };
 
   useEffect(() => {
     // Porting the IntersectionObserver logic from reference.html
@@ -72,13 +78,13 @@ export function EcosystemMinimap() {
     <>
       <nav>
         <div className="logo">TECHIE INTERNS</div>
-        <div className="nav-status" onClick={() => setIsExpanded(!isExpanded)} style={{ cursor: 'pointer' }}>
+        <div className="nav-status" onClick={toggleMobileNav} style={{ cursor: 'pointer' }}>
           <div className="status-dot"></div>
           TELEMETRY LIVE
         </div>
       </nav>
 
-      <div id="eco-nav" className={`sr sr-delay-3 ${isExpanded ? 'mobile-visible' : ''}`}>
+      <div id="eco-nav" ref={ecoNavRef} className="sr sr-delay-3">
         <div className="eco-header">ECOSYSTEM TRACKER</div>
 
         <div className="eco-track-label sec">SECURITY TRACK</div>
