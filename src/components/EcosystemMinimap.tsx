@@ -57,6 +57,7 @@ export function EcosystemMinimap() {
               if (isActive) {
                 if (n.classList.contains('c-name')) n.classList.add('active-c');
                 if (n.classList.contains('v-name')) n.classList.add('active-v');
+                if (n.classList.contains('e-name')) n.classList.add('active-e');
               } else {
                 n.classList.add('dim');
               }
@@ -141,6 +142,16 @@ export function EcosystemMinimap() {
           <div id="nav-neuro" className="eco-dot violet"></div>
           <div className="eco-name v-name">
             <a href="https://github.com/saishamehraa/NeuroAccess" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>NeuroAccess</a>
+          </div>
+        </div>
+
+        <div className="eco-divider"></div>
+        <div className="eco-track-label str">STRATEGIC TRACK</div>
+
+        <div className="eco-node" onClick={(e) => { if ((e.target as HTMLElement).tagName !== 'A') document.getElementById('strategic')?.scrollIntoView({ behavior: 'smooth' }); }}>
+          <div id="nav-stratdean" className="eco-dot emerald"></div>
+          <div className="eco-name e-name">
+            <a href="https://github.com/saishamehraa/StratDean" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>StratDean</a>
           </div>
         </div>
       </div>

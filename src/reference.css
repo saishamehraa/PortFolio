@@ -63,6 +63,7 @@ nav {
 }
 .eco-track-label.sec { color: rgba(0,212,255,0.5); }
 .eco-track-label.cog { color: rgba(167,139,250,0.5); }
+.eco-track-label.str { color: rgba(0,232,122,0.5); }
 .eco-node {
   display: flex; align-items: center; gap: 8px; padding: 6px 8px;
   border-radius: 4px; cursor: pointer; transition: all .3s; margin-bottom: 2px;
@@ -72,12 +73,15 @@ nav {
 .eco-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; transition: all .4s; border: 1px solid; }
 .eco-dot.cyan { background: rgba(0,212,255,0.15); border-color: rgba(0,212,255,0.3); }
 .eco-dot.violet { background: rgba(167,139,250,0.15); border-color: rgba(167,139,250,0.3); }
+.eco-dot.emerald { background: rgba(0,232,122,0.15); border-color: rgba(0,232,122,0.3); }
 .eco-name { font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: .06em; transition: color .3s; }
 .eco-dot.cyan.active { background: var(--cyan); border-color: var(--cyan); box-shadow: 0 0 8px rgba(0,212,255,0.5); }
 .eco-dot.violet.active { background: var(--violet); border-color: var(--violet); box-shadow: 0 0 8px rgba(167,139,250,0.5); }
+.eco-dot.emerald.active { background: var(--emerald); border-color: var(--emerald); box-shadow: 0 0 8px rgba(0,232,122,0.5); }
 .eco-dot.dim { opacity: .18; }
 .eco-name.active-c { color: var(--cyan); }
 .eco-name.active-v { color: var(--violet); }
+.eco-name.active-e { color: var(--emerald); }
 .eco-name.dim { color: rgba(107,117,128,0.4); }
 .eco-divider { height: 1px; background: var(--border); margin: 10px 0; }
 

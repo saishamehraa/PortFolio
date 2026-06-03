@@ -7,6 +7,7 @@ import { OrchestrationFlow } from './components/OrchestrationFlow';
 import { SecurityIntelligence } from './components/SecurityIntelligence';
 import { BranchSplit } from './components/BranchSplit';
 import { CognitiveIntelligence } from './components/CognitiveIntelligence';
+import { StrategicIntelligence } from './components/StrategicIntelligence';
 import { OriginEcosystem } from './components/OriginEcosystem';
 import { FutureVision } from './components/FutureVision';
 import './styles/globals.css';
@@ -23,6 +24,7 @@ export default function App() {
       <SecurityIntelligence />
       <BranchSplit />
       <CognitiveIntelligence />
+      <StrategicIntelligence />
       <OriginEcosystem />
       <FutureVision />
     </>

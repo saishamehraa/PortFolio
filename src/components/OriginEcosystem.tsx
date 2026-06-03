@@ -35,11 +35,18 @@ export function OriginEcosystem() {
             <div className="origin-sub">To solve the trust gap, we developed orchestrated ecosystems where autonomous agents could cross-validate and secure each other.</div>
           </div>
         </div>
-        <div className="origin-step" style={{ borderLeftColor: 'transparent' }}>
+        <div className="origin-step">
           <div className="origin-year">PHASE 5</div>
           <div className="origin-text">
             <div className="origin-title">Cognitive Intelligence</div>
-            <div className="origin-sub">The final frontier extends beyond security—exploring how intelligence safely interacts with human perception and intent.</div>
+            <div className="origin-sub">The frontier extends beyond security—exploring how intelligence safely interacts with human perception and intent.</div>
+          </div>
+        </div>
+        <div className="origin-step" style={{ borderLeftColor: 'transparent' }}>
+          <div className="origin-year">PHASE 6</div>
+          <div className="origin-text">
+            <div className="origin-title">Strategic Intelligence</div>
+            <div className="origin-sub">Transforming trusted knowledge into organizational strategy, moving from cognitive understanding to coordinated execution.</div>
           </div>
         </div>
       </div>

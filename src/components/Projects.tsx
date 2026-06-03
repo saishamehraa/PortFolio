@@ -78,6 +78,19 @@ export function Projects() {
     }
   ];
 
+  const strategicSystems = [
+    {
+      title: 'StratDean',
+      subtitle: 'AI Chief of Staff & Organizational Intelligence Platform',
+      description: 'Transforms organizational knowledge into coordinated strategy and execution, exploring how organizations convert intelligence into operational decision support.',
+      tech: ['Executive Intelligence', 'Strategic Planning', 'Decision Support', 'Organizational Memory'],
+      github: 'https://github.com/saishamehraa/StratDean',
+      demo: '#',
+      icon: <Network className="w-5 h-5 text-[#00E87A]" />,
+      accentColor: '#00E87A'
+    }
+  ];
+
   const utilitySystems = [
     {
       title: 'PhishGuard',
@@ -187,7 +200,7 @@ export function Projects() {
             </div>
           </div>
 
-          {/* COGNITIVE INTELLIGENCE SYSTEMS (Remaining) */}
+          {/* COGNITIVE INTELLIGENCE SYSTEMS */}
           <div>
             <motion.h3 
               initial={{ opacity: 0, y: 16 }}
@@ -202,6 +215,25 @@ export function Projects() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
               {cognitiveSystems.map((sys, idx) => (
                 <SystemCard key={idx} sys={sys} index={idx} borderHover="hover:border-[#A68CFF]/40" shadowHover="hover:shadow-[0_0_30px_rgba(166,140,255,0.05)]" />
+              ))}
+            </div>
+          </div>
+
+          {/* STRATEGIC INTELLIGENCE SYSTEMS */}
+          <div>
+            <motion.h3 
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.9, ease: "easeOut" }}
+              viewport={{ once: true, margin: "-50px" }}
+              className="text-2xl sm:text-3xl font-orbitron text-[#F0F4FF] mb-12 pb-6 border-b border-white/10 flex items-center gap-5 tracking-wide"
+            >
+              <Network className="w-8 h-8 text-[#00E87A]" /> Strategic Intelligence Systems
+            </motion.h3>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
+              {strategicSystems.map((sys, idx) => (
+                <SystemCard key={idx} sys={sys} index={idx} borderHover="hover:border-[#00E87A]/40" shadowHover="hover:shadow-[0_0_30px_rgba(0,232,122,0.05)]" />
               ))}
             </div>
           </div>

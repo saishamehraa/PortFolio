@@ -13,7 +13,7 @@ Our ecosystem secures the execution pathway from prompt to action, ensuring that
 
 ## 🧩 The Ecosystem Architecture
 
-The architecture bifurcates into two main tracks:
+The architecture trifurcates into three main tracks:
 
 ### Security Track
 Defending the execution pathway through dynamic threat reasoning, cross-module orchestration, and continuous trust propagation.
@@ -28,6 +28,10 @@ Defending the execution pathway through dynamic threat reasoning, cross-module o
 Mapping the cognitive boundary and exploring how intelligence safely interacts with human perception, intent, and reality.
 - **OpenMind Nexus**: Information Integrity & Trust Formation.
 - **NeuroAccess**: Cognitive Security & Human Perception.
+
+### Strategic Intelligence Track
+Transforming organizational knowledge into coordinated action, execution, and operational decision support.
+- **StratDean**: AI Chief of Staff & Organizational Intelligence Platform.
 
 ---
 
