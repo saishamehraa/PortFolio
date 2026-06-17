@@ -154,6 +154,12 @@ export function EcosystemMinimap() {
             <a href="https://github.com/saishamehraa/StratDean" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>StratDean</a>
           </div>
         </div>
+        <div className="eco-node" onClick={(e) => { if ((e.target as HTMLElement).tagName !== 'A') document.getElementById('strategic')?.scrollIntoView({ behavior: 'smooth' }); }}>
+          <div id="nav-orbitring" className="eco-dot emerald"></div>
+          <div className="eco-name e-name">
+            <a href="https://github.com/saishamehraa/OrbitRing" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>OrbitRing</a>
+          </div>
+        </div>
       </div>
     </>
   );
